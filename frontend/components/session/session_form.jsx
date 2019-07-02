@@ -26,7 +26,10 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        let errors = this.props.errors.map(error => <li>{error}</li>)
+        let errors = this.props.errors.map((error, idx) => 
+            <li key={`error-${idx}`}>
+                {error}
+            </li>)
 
         let toOtherForm;
         let usernameField;
@@ -43,44 +46,45 @@ class SessionForm extends React.Component {
             toOtherForm = <Link to="/signup">Create Account</Link>;
         }
         return (
-            <div className='session-form'>
-                <div className="session-form-content">
-                    <div className='session-form-logo'>
-                        <FontAwesomeIcon icon={faPlayCircle}/> 
-                        <span>YourTube</span>
-                    </div>
+            <div className='session-form-container'>
+                <div className='session-form'>
+                    <div className="session-form-content">
+                        <div className='session-form-logo'>
+                            <FontAwesomeIcon icon={faPlayCircle}/> 
+                            <span>YourTube</span>
+                        </div>
 
-                    <header className='session-form-header'>
-                        <h3>{this.props.formType}</h3>
-                        <p className='session-form-sub-header'>to continue to YourTube</p>
-                    </header>
+                        <header className='session-form-header'>
+                            <h3>{this.props.formType}</h3>
+                            <p className='session-form-sub-header'>to continue to YourTube</p>
+                        </header>
 
-                    <ul className='session-form-errors'>
-                        {errors}
-                    </ul>
+                        <form className='session-form-inputs-container'>
+                            {usernameField}
 
-                    <form className='session-form-inputs-container'>
-                        {usernameField}
+                            <input 
+                                type='text'
+                                value={this.state.email}
+                                onChange={this.update('email')}
+                                placeholder="Email"
+                            />
 
-                        <input 
-                            type='text'
-                            value={this.state.email}
-                            onChange={this.update('email')}
-                            placeholder="Email"
-                        />
-
-                        <input 
-                            type='password'
-                            value={this.state.password}
-                            onChange={this.update('password')}
-                            placeholder="Password"
-                        />
-                    </form>
-                    <div className="session-form-buttons">
-                        {toOtherForm}
-                        <button onClick={this.handleSubmit}>Next</button>
+                            <input 
+                                type='password'
+                                value={this.state.password}
+                                onChange={this.update('password')}
+                                placeholder="Password"
+                            />
+                        </form>
+                        <div className="session-form-buttons">
+                            {toOtherForm}
+                            <button onClick={this.handleSubmit}>Next</button>
+                        </div>
                     </div>
                 </div>
+                <ul className='session-form-errors'>
+                    {errors}
+                </ul>
             </div>
         )
     }

@@ -1,5 +1,6 @@
 .session-form {
     margin: 100px auto;
+    margin-bottom: 10px;
     width: 450px;
     height: 500px;
     padding: 48px 40px 36px;
@@ -92,4 +93,19 @@
 
 .session-form-buttons button:hover {
     cursor: pointer;
+}
+
+.session-form-errors {
+    width: 450px;
+    margin: 0 auto;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #FF0000;
+    list-style: circle;
+}
+
+.session-form-errors li {
+    padding-bottom: 4px;
 }
