@@ -25,6 +25,10 @@ class SessionForm extends React.Component {
         this.props.action(this.state)
     }
 
+    componentDidMount() {
+        this.props.clearErrors();
+    }
+    
     render() {
         let errors = this.props.errors.map((error, idx) => 
             <li key={`error-${idx}`}>

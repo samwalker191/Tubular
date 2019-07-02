@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import SessionForm from './session_form';
-import { signup } from '../../actions/session_actions';
+import { signup, clearErrors } from '../../actions/session_actions';
 
 const mapSTP = state => {
     return ({
@@ -11,7 +11,8 @@ const mapSTP = state => {
 
 const mapDTP = dispatch => {
     return ({
-        action: user => dispatch(signup(user))
+        action: user => dispatch(signup(user)),
+        clearErrors: () => dispatch(clearErrors())
     });
 };
 
