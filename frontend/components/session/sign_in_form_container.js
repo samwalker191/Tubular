@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import SessionForm from '../session/SessionForm';
+import SessionForm from './session_form';
 import { signin } from '../../actions/session_actions';
 
 const mapSTP = state => {
