@@ -44,40 +44,42 @@ class SessionForm extends React.Component {
         }
         return (
             <div className='session-form'>
+                <div className="session-form-content">
+                    <div className='session-form-logo'>
+                        <FontAwesomeIcon icon={faPlayCircle}/> 
+                        <span>YourTube</span>
+                    </div>
 
-                <logo>
-                    <FontAwesomeIcon icon={faPlayCircle}/> 
-                    <p>YourTube</p>
-                </logo>
+                    <header className='session-form-header'>
+                        <h3>{this.props.formType}</h3>
+                        <p className='session-form-sub-header'>to continue to YourTube</p>
+                    </header>
 
-                <h3>{this.props.formType}</h3>
+                    <ul className='session-form-errors'>
+                        {errors}
+                    </ul>
 
-                <p className='session-form-sub-header'>to continue to YourTube</p>
+                    <form className='session-form-inputs-container'>
+                        {usernameField}
 
-                <ul className='session-form-errors'>
-                    {errors}
-                </ul>
+                        <input 
+                            type='text'
+                            value={this.state.email}
+                            onChange={this.update('email')}
+                            placeholder="Email"
+                        />
 
-                <form>
-                    {usernameField}
-
-                    <input 
-                        type='text'
-                        value={this.state.email}
-                        onChange={this.update('email')}
-                        placeholder="Email"
-                    />
-
-                    <input 
-                        type='password'
-                        value={this.state.password}
-                        onChange={this.update('password')}
-                        placeholder="Password"
-                    />
-                </form>
-                <div className="session-form-buttons">
-                    {toOtherForm}
-                    <button onClick={this.handleSubmit}>Next</button>
+                        <input 
+                            type='password'
+                            value={this.state.password}
+                            onChange={this.update('password')}
+                            placeholder="Password"
+                        />
+                    </form>
+                    <div className="session-form-buttons">
+                        {toOtherForm}
+                        <button onClick={this.handleSubmit}>Next</button>
+                    </div>
                 </div>
             </div>
         )

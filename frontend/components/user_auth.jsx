@@ -15,6 +15,7 @@ const UserAuth = () => (
         <h1>This is the UserAuth component</h1>
         <Route path='/signin' component={SignInFormContainer} />
         <Route path='/signup' component={SignUpFormContainer} />
+        
     </div>
 );
 
