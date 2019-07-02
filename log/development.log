@@ -1,0 +1,17 @@
+Started GET "/" for ::1 at 2019-07-01 20:35:01 -0700
+
+PG::ConnectionBad - FATAL:  database "YourTube_development" does not exist
+:
+
+Started POST "/__better_errors/b283b5dd26487a8b/variables" for ::1 at 2019-07-01 20:35:01 -0700
+  [1m[35m (390.2ms)[0m  [1m[35mCREATE DATABASE "YourTube_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (306.7ms)[0m  [1m[35mCREATE DATABASE "YourTube_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2019-07-01 20:35:26 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.7ms)
+Completed 200 OK in 1575ms (Views: 1573.0ms | ActiveRecord: 0.0ms)
+
+
