@@ -597,3 +597,31 @@ Processing by StaticPagesController#root as HTML
 Completed 200 OK in 518ms (Views: 517.2ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2019-07-02 13:43:23 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.4ms)
+Completed 200 OK in 619ms (Views: 617.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-02 13:43:37 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.2ms)
+Completed 200 OK in 618ms (Views: 616.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-02 13:43:44 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.2ms)
+Completed 200 OK in 601ms (Views: 600.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-02 13:44:39 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.2ms)
+Completed 200 OK in 673ms (Views: 671.6ms | ActiveRecord: 0.0ms)
+
+

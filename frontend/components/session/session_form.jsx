@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlayCircle } from '@fortawesome/free-regular-svg-icons';
+
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -41,6 +44,11 @@ class SessionForm extends React.Component {
         }
         return (
             <div className='session-form'>
+
+                <logo>
+                    <FontAwesomeIcon icon={faPlayCircle}/> 
+                    <p>YourTube</p>
+                </logo>
 
                 <h3>{this.props.formType}</h3>
 
