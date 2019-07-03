@@ -32,9 +32,11 @@ class SessionForm extends React.Component {
             username: 'DemoUser',
             email: 'demouser@demo.io',
             password: 'noseyone'
-        })
-        this.props.action(this.state)
-            .then(() => this.props.history.push('/'));
+        });
+        setTimeout(() => {
+            this.props.action(this.state)
+                .then(() => this.props.history.push('/'))
+        }, 0)
     }
 
     componentDidMount() {
