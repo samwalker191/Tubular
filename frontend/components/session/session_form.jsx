@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
 
         this.state = { username: '', email: '', password: '' };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
     }
 
     update(field) {
@@ -26,6 +27,16 @@ class SessionForm extends React.Component {
             .then(() => this.props.history.push('/'));
     }
 
+    handleDemo() {
+        this.setState({
+            username: 'DemoUser',
+            email: 'demouser@demo.io',
+            password: 'noseyone'
+        })
+        this.props.action(this.state)
+            .then(() => this.props.history.push('/'));
+    }
+
     componentDidMount() {
         this.props.clearErrors();
     }
@@ -38,6 +49,7 @@ class SessionForm extends React.Component {
 
         let toOtherForm;
         let usernameField;
+        let demoUserButton;
 
         if (this.props.formType === 'Create Your Account') {
             toOtherForm = <Link to="/signin">Sign in instead</Link>;
@@ -49,6 +61,7 @@ class SessionForm extends React.Component {
             />;
         } else if (this.props.formType === 'Sign In') {
             toOtherForm = <Link to="/signup">Create Account</Link>;
+            demoUserButton = <button onClick={this.handleDemo}>Demo User</button>
         }
         return (
             <div className='session-form-container'>
@@ -64,7 +77,7 @@ class SessionForm extends React.Component {
                             <p className='session-form-sub-header'>to continue to YourTube</p>
                         </header>
 
-                        <form className='session-form-inputs-container'>
+                        <form className='session-form-inputs-container' onSubmit={this.handleSubmit}>
                             {usernameField}
 
                             <input 
@@ -80,12 +93,14 @@ class SessionForm extends React.Component {
                                 onChange={this.update('password')}
                                 placeholder="Password"
                             />
+                            <input type='submit' className='session-form-submit'/>
                         </form>
                         <ul className='session-form-errors'>
                             {errors}
                         </ul>
                         <div className="session-form-buttons">
                             {toOtherForm}
+                            {demoUserButton}
                             <button onClick={this.handleSubmit}>Next</button>
                         </div>
                     </div>

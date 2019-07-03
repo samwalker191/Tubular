@@ -5,6 +5,11 @@ import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faBars, faArrowCircleUp, faUserCircle, faVideo } from '@fortawesome/free-solid-svg-icons';
 
 class Header extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.handleLogout = this.handleLogout.bind(this);
+    }
 
     handleLogout() {
         this.props.logout();
@@ -19,7 +24,10 @@ class Header extends React.Component {
                         </Link>
         } else {
             authButton = <button className='header-logout' onClick={this.handleLogout}>
-                            {this.props.users[this.props.currentUserId]}
+                            <div>{this.props.users[this.props.currentUserId]
+                                .username.slice(0,1).toUpperCase()}
+                            </div>
+                            <span>LOGOUT</span>
                         </button>
         }
 

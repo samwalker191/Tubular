@@ -102,6 +102,11 @@
 }
 
 .session-form-buttons button:hover {
+    background: rgb(0, 125, 225);
+    box-shadow: 0.5px 1px 2px rgb(0, 125, 225);
+}
+
+.session-form-buttons button:hover {
     cursor: pointer;
 }
 
@@ -122,4 +127,8 @@
 
 .session-form-errors {
     margin-bottom: 10px;
+}
+
+.session-form-submit {
+    display: none;
 }

@@ -39,7 +39,7 @@ export const signin = user => dispatch => (
         )
 );
 
-export const logout = () => dispatch (
+export const logout = () => dispatch => (
     SessionAPIUtil.logout()
         .then(
             () => dispatch(logoutCurrentUser()),

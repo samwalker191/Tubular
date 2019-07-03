@@ -35,7 +35,7 @@
 }
 
 .header-logo span {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     font-weight: bolder;
     padding-left: 3px;
     font-stretch: extra-condensed;
@@ -75,3 +75,37 @@
     font-weight: bold;
 }
 
+.header-logout {
+    border: 1px solid #065FD4;
+    border-radius: 2px;
+    padding: 5px 11px;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    color: #065FD4;
+    display: block;
+}
+
+.header-logout:hover {
+    cursor: pointer;
+}
+
+.header-logout div {
+    background: rgb(253, 77, 41);
+    color: white;
+    padding: 3px 6px;
+    height: 22px;
+    width: 22px;
+    border-radius: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    line-height: 17px;
+    box-shadow: 0.5px 1px 2px #606060;
+}
+
+.header-logout span {
+    padding-left: 5px;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+}
