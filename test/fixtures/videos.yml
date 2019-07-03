@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: videos
+#
+#  id          :bigint           not null, primary key
+#  title       :string           not null
+#  owner_id    :integer          not null
+#  views       :integer          default(0), not null
+#  description :text             default("No description"), not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined. If you add columns to the
