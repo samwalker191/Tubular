@@ -63,7 +63,9 @@ class SessionForm extends React.Component {
             />;
         } else if (this.props.formType === 'Sign In') {
             toOtherForm = <Link to="/signup">Create Account</Link>;
-            demoUserButton = <button onClick={this.handleDemo}>Demo User</button>
+            demoUserButton = <button onClick={this.handleDemo} className="session-form-demo-button">
+                                Demo
+                            </button>
         }
         return (
             <div className='session-form-container'>
