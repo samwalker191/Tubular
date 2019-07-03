@@ -2,6 +2,7 @@ class Api::VideosController < ApplicationController
     def index(query = '')
         formatted_query = '%' + query + '%'
         @videos = Video.where('videos.title like ?', formatted_query)
+        render :index
     end
 
     def create
@@ -24,7 +25,7 @@ class Api::VideosController < ApplicationController
         @video = Video.find(params[:id])
         if current_user.id == @video.id 
             if @video.update_attributes(video_params)
-                render: show
+                render :show
             else
                 render json: @video.errors.full_messages, status: 422
             end
