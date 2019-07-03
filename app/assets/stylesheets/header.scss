@@ -2,10 +2,11 @@
     width: 100%;
     height: 56px;
     margin: auto;
-    background: pink;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    // border-bottom: 1px solid lightgray;
+    box-shadow: 0 1px 10px hsl(0, 0%, 96%);
 }
 
 .header-left {
@@ -51,11 +52,13 @@
 }
 
 .header-signin {
-    border: 1px solid black;
-    padding: 5px 11px;
+    border: 1px solid #065FD4;
+    border-radius: 2px;
+    padding: 7px 11px;
     height: 80%;
     display: flex;
     align-items: center;
+    color: #065FD4;
 }
 
 .header-signin svg {
