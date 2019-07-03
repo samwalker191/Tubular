@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 
 import HeaderContainer from './header/header_container'
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const MainApp = () => (
     <div>
