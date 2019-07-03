@@ -1,4 +1,6 @@
 class Api::VideosController < ApplicationController
+    before_action :require_logged_in, only: [:create, :update, :destroy]
+
     def index(query = '')
         formatted_query = '%' + query + '%'
         @videos = Video.where('videos.title like ?', formatted_query)

@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
         @current_user ||= User.find_by(session_token: session[:session_token])
     end
 
-    def require_loggedin 
+    def require_logged_in
+        render json: ["Must be logged in to use this feature"], status: 422 unless logged_in?
     end
 
     def login(user)
