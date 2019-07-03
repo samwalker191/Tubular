@@ -7,12 +7,12 @@ import {
     HashRouter
 } from 'react-router-dom';
 
+import HeaderContainer from './header/header_container'
 
-
-const UserAuth = () => (
+const MainApp = () => (
     <div>
-        <Route path='/signin' component={SignInFormContainer} />
-        <Route path='/signup' component={SignUpFormContainer} />
-
+        <HeaderContainer />
     </div>
 );
+
+export default MainApp;

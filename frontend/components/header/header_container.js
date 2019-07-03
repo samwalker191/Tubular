@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Header from './header';
-import { logoutCurrentUser } from '../../actions/session_actions';
+import { logout } from '../../actions/session_actions';
 
 const mapSTP = state => {
     return ({
@@ -11,7 +11,7 @@ const mapSTP = state => {
 
 const mapDTP = dispatch => {
     return ({
-        logout: () => dispatch(logoutCurrentUser())
+        logout: () => dispatch(logout())
     });
 };
 
