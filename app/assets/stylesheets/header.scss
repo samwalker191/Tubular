@@ -1,0 +1,68 @@
+.header {
+    width: 100%;
+    height: 56px;
+    margin: auto;
+    background: pink;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 150px;
+    padding-left: 24px;
+}
+
+.header-left > svg {
+    font-size: 18px;
+    font-weight: lighter;
+    color: #606060;
+}
+
+.header-logo {
+    font-size: 20px;
+    display: flex;
+    align-items: center; 
+}
+
+.header-logo > svg {
+    color: #FF0000;
+    font-size: 22px;
+    transform: rotate(180deg);
+}
+
+.header-logo span {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    padding-left: 3px;
+    font-stretch: extra-condensed;
+    font-size: 18px;
+}
+
+.header-right {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 25px;
+}
+
+.header-signin {
+    border: 1px solid black;
+    padding: 5px 11px;
+    height: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.header-signin svg {
+    font-size: 24px;
+}
+
+.header-signin span {
+    padding-left: 5px;
+}
+

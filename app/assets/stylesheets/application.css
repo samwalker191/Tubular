@@ -16,4 +16,13 @@
 
  body {
     font-family: 'Open Sans', sans-serif;
+    color: #000000;
+ }
+
+ body input:hover {
+    cursor: text;
+ }
+
+ body a:hover {
+    cursor: pointer;
  }

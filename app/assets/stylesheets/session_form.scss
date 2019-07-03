@@ -18,9 +18,15 @@
     align-items: center;
 }
 
+.session-form-logo {
+    display: flex;
+    align-items: center;
+}
+
 .session-form-logo svg {
     color: #FF0000;
     font-size: 40px;
+    transform: rotate(180deg);
 }
 
 .session-form-logo span {
@@ -42,6 +48,10 @@
     font-weight: bold;
     line-height: 1.3333;
     padding-bottom: 25px;
+}
+
+.session-form-sub-header {
+    margin-bottom: 15px;
 }
 
 .session-form-inputs-container {
@@ -108,4 +118,8 @@
 
 .session-form-errors li {
     padding-bottom: 4px;
+}
+
+.session-form-errors {
+    margin-bottom: 10px;
 }

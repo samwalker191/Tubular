@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlayCircle } from '@fortawesome/free-regular-svg-icons';
+import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 
 class SessionForm extends React.Component {
@@ -22,7 +22,6 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
         this.props.action(this.state)
             .then(() => this.props.history.push('/'));
     }
@@ -56,7 +55,7 @@ class SessionForm extends React.Component {
                 <div className='session-form'>
                     <div className="session-form-content">
                         <div className='session-form-logo'>
-                            <FontAwesomeIcon icon={faPlayCircle}/> 
+                            <FontAwesomeIcon icon={faYoutube}/> 
                             <span>YourTube</span>
                         </div>
 
@@ -82,15 +81,15 @@ class SessionForm extends React.Component {
                                 placeholder="Password"
                             />
                         </form>
+                        <ul className='session-form-errors'>
+                            {errors}
+                        </ul>
                         <div className="session-form-buttons">
                             {toOtherForm}
                             <button onClick={this.handleSubmit}>Next</button>
                         </div>
                     </div>
                 </div>
-                <ul className='session-form-errors'>
-                    {errors}
-                </ul>
             </div>
         )
     }
