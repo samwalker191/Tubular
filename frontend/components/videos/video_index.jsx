@@ -9,7 +9,9 @@ class VideoIndex extends React.Component {
     }
 
     render() {
-        let videoItems = this.props.videos.map(video => <VideoIndexItem video={video} />)
+        let videoItems = this.props.videos.map(
+            (video, idx) => <VideoIndexItem video={video} key={`video-${idx}`}/>
+        )
 
         return (
             <div className='main-index'>
@@ -20,6 +22,11 @@ class VideoIndex extends React.Component {
                 <div className='main-index-recommended'>
                     <h3>Recommended</h3>
                     <ul className="main-index-recommended-list">
+                        {videoItems}
+                        {videoItems}
+                        {videoItems}
+                        {videoItems}
+                        {videoItems}
                         {videoItems}
                     </ul>
                 </div>

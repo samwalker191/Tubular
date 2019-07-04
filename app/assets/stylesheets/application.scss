@@ -14,9 +14,14 @@
  *= require_self
  */
 
+ html {
+    height: 100%;
+ }
+
  body {
     font-family: 'Open Sans', sans-serif;
     color: #000000;
+    background: rgb(250, 250, 250);
  }
 
  body a {

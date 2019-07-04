@@ -15,9 +15,9 @@ class VideoIndexItem extends React.Component {
     render() {
 
         return (
-            <li>
-                <img src={this.props.video.thumbnail} width='210' ></img>
-                <div className='vide-details'>
+            <li className='video-list-item'>
+                <img src={this.props.video.thumbnail}></img>
+                <div className='video-details'>
                     <h3>{this.props.video.title}</h3>
                     <p>{this.props.video.owner}</p>
                 </div>

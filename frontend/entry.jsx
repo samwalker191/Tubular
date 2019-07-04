@@ -4,7 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // FOR TESTING
-import { fetchVideo, fetchVideos } from './actions/videos_actions';
+import { fetchVideo, fetchVideos, updateVideo } from './actions/videos_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.getState = store.getState;
     window.fetchVideo = fetchVideo;
     window.fetchVideos = fetchVideos;
+    window.updateVideo = updateVideo;
     // FOR TESTING
 
     ReactDOM.render(<Root store={store}/>, root)
