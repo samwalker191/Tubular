@@ -5,9 +5,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 1px 10px hsl(0, 0%, 93%);
+    box-shadow: 0 1px 10px hsl(0, 0%, 90%);
     background: rgb(255, 255, 255);
-    position: sticky;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    top: 0;
 }
 
 .header-left {

@@ -2,3 +2,5 @@ json.extract! video, :id, :title, :description, :views
 json.videoURL url_for(video.video)
 json.thumbnail url_for(video.thumbnail)
 json.owner video.owner.username
+json.owner_id video.owner.id
+json.published video.created_at.strftime("%B %d, %Y")
