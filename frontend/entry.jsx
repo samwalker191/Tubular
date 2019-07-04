@@ -4,7 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // FOR TESTING
-import { fetchVideos } from './actions/videos_actions';
+import { fetchVideo, fetchVideos } from './actions/videos_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // FOR TESTING
     window.store = store;
     window.getState = store.getState;
+    window.fetchVideo = fetchVideo;
     window.fetchVideos = fetchVideos;
     // FOR TESTING
 
