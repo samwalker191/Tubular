@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 
-import { RECEIVE_VIDEOS, RECEIVE_VIDEO, REMOVE_VIDEO } from '../actions/videos_actions';
+import { RECEIVE_VIDEOS, RECEIVE_VIDEO, REMOVE_VIDEO } from '../../actions/videos_actions';
 
 const VideosReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
