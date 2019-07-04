@@ -10,7 +10,8 @@ class Api::VideosController < ApplicationController
 
     def create
         @video = Video.new(video_params)
-        @video.video.attach(params[:video][:video_attach])
+        @video.video.attach(params[:video][:video])
+        @video.thumbnail.attach(params[:video][:thumbnail])
 
         if @video.save
             render :show
