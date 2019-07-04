@@ -12,6 +12,7 @@ class Api::SessionsController < ApplicationController
 
     def destroy
         if current_user
+            @current_user = current_user
             logout!
             render json: {}
         else

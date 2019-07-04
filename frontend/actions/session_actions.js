@@ -42,7 +42,7 @@ export const signin = user => dispatch => (
 export const logout = () => dispatch => (
     SessionAPIUtil.logout()
         .then(
-            () => dispatch(logoutCurrentUser()),
+            currentUserId => dispatch(logoutCurrentUser(currentUserId)),
             errors => dispatch(receiveErrors(errors))
         )
 );
