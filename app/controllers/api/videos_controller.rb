@@ -25,7 +25,7 @@ class Api::VideosController < ApplicationController
 
     def update
         @video = Video.find(params[:id])
-        if current_user.id == @video.id 
+        if current_user.id == @video.owner_id
             if @video.update_attributes(video_params)
                 render :show
             else
@@ -38,7 +38,7 @@ class Api::VideosController < ApplicationController
 
     def destroy
         @video = Video.find(params[:id])
-        if current_user.id == @video.id
+        if current_user.id == @video.owner_id
             @video.destroy
         else
             render json: ['Must be owner of video to destroy'], status: 422
