@@ -1,13 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class VideoIndexItem extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = { vidURL: '', }
-    }
-
-
+    
     componentDidMount() {
 
     }
@@ -16,11 +11,13 @@ class VideoIndexItem extends React.Component {
 
         return (
             <li className='video-list-item'>
-                <img src={this.props.video.thumbnail}></img>
-                <div className='video-details'>
-                    <h3>{this.props.video.title}</h3>
-                    <p>{this.props.video.owner}</p>
-                </div>
+                <Link to={`/watch/${this.props.video.id}`}>
+                    <img src={this.props.video.thumbnail}></img>
+                    <div className='video-details'>
+                        <h3>{this.props.video.title}</h3>
+                        <p>{this.props.video.owner}</p>
+                    </div>
+                </Link>
             </li>
         );
     }

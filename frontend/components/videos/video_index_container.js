@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { receiveVideos } from '../../actions/videos_actions';
+import { fetchVideos } from '../../actions/videos_actions';
 import VideoIndex from './video_index';
 
 const mapSTP = state => {
@@ -10,7 +10,7 @@ const mapSTP = state => {
 
 const mapDTP = dispatch => {
     return ({
-        fetchVideos: () => dispatch(fetchVideos())
+        fetchVideos: (query) => dispatch(fetchVideos(query))
     })
 };
 
