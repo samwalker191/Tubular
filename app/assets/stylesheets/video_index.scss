@@ -7,15 +7,13 @@
 
 .main-index-recommended {
     display: flex;
-    // flex-direction: column;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap;
     width: 73%;
     padding-bottom: 24px;
     border-bottom: 2px solid rgb(225, 225, 225);
     height: 100%;
-    // margin: auto
 }
 
 .main-index-recommended > h3 {
@@ -28,6 +26,8 @@
 .main-index-recommended-list {
     display: flex;
     width: 100%;
+    flex-wrap: nowrap;
+
 }
 
 .main-index-recommended-list > * {
