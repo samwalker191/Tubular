@@ -12,6 +12,7 @@ class Api::VideosController < ApplicationController
         @video = Video.new(video_params)
         @video.video.attach(params[:video][:video])
         @video.thumbnail.attach(params[:video][:thumbnail])
+        @video.owner_id = current_user.id
 
         if @video.save
             render :show

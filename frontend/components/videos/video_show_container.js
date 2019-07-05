@@ -8,14 +8,14 @@ const mapSTP = (state, ownProps) => {
         videos: Object.values(state.entities.videos),
         shownVideo: state.entities.videos[ownProps.match.params.videoId],
         currentUser: currentUser
-    })
+    });
 };
 
 const mapDTP = dispatch => {
     return ({
         fetchVideo: videoId => dispatch(fetchVideo(videoId)),
         fetchVideos: query => dispatch(fetchVideos(query))
-    })
+    });
 };
 
 export default connect(mapSTP, mapDTP)(VideoShow);
