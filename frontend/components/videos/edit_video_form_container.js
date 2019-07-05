@@ -5,19 +5,23 @@ import { fetchVideo, updateVideo } from '../../actions/videos_actions';
 
 const mapSTP = (state, ownProps) => {
     let currentUser = state.session.id === null ? null : state.entities.users[state.session.id];
-    let defaultVideo = { title: '', description: null };
+    let defaultVideo = {
+        title: '',
+        description: '',
+        videoURL: null,
+        thumbnail: null
+    };
     let video = state.entities.videos[ownProps.match.params.videoId] || defaultVideo;
     return ({
         video: video,
         errors: state.errors.videos,
-        formType: 'Update Your Video Details',
+        formType: 'Update your video details',
         buttonType: 'Update',
         currentUser: currentUser,
     });
 };
 
 const mapDTP = dispatch => {
-
     return ({
         action: video => dispatch(updateVideo(video)),
         fetchVideo: videoId => dispatch(fetchVideo(videoId))

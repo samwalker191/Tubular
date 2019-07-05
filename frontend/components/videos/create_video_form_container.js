@@ -5,7 +5,12 @@ import { createVideo } from '../../actions/videos_actions';
 const mapSTP = state => {
     let currentUser = state.session.id === null ? null : state.entities.users[state.session.id];
     return ({
-        video: { title: '', description: null },
+        video: { 
+            title: '',
+            description: '',
+            videoURL: null,
+            thumbnail: null
+        },
         errors: state.errors.videos,
         formType: 'Upload your video',
         currentUser: currentUser,

@@ -7,13 +7,56 @@ class VideoForm extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = this.props.video
+        this.state = {
+            title: this.props.video.title,
+            description: this.props.video.description,
+            thumbnailFile: null,
+            videoFile: null
+        }
+        this.handleThumbnailFile = this.handleThumbnailFile.bind(this);
+        this.handleVideoFile = this.handleVideoFile.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value
         });
+    }
+
+    handleThumbnailFile(e) {
+        this.setState({ thumbnailFile: e.currentTarget.files[0] })
+    }
+
+    handleVideoFile(e) {
+        this.setState({ videoFile: e.currentTarget.files[0] })
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        const formData= new FormData();
+        formData.append('video[title]', this.state.title);
+        formData.append('video[description]', this.state.description);
+        formData.append('video[video]', this.state.videoFile);
+        formData.append('video[thumbnail]', this.state.thumbnailFile);
+
+        if (this.props.formType === 'Upload your video') {
+            $.ajax({
+                method: 'POST',
+                url: '/api/videos',
+                data: formData,
+                contentType: false,
+                processData: false
+            });
+        } else if (this.props.formType === 'Update your video details') {
+            $.ajax({
+                method: 'PATCH',
+                url: `/api/videos/${this.props.video.id}`,
+                data: formData,
+                contentType: false,
+                processData: false
+            });
+        } 
     }
 
     render() {
@@ -30,6 +73,7 @@ class VideoForm extends React.Component {
                                     id='video-form-video-upload' 
                                     type='file'
                                     accept='video/*'
+                                    onChange={this.handleVideoFile}
                                 />
                             </label>
 
@@ -39,6 +83,7 @@ class VideoForm extends React.Component {
                                     id='video-form-thumbnail-upload'
                                     type='file'
                                     accept='image/*'
+                                    onChange={this.handleThumbnailFile}
                                 />
                             </label>
                         </div>
@@ -57,7 +102,7 @@ class VideoForm extends React.Component {
                                 value={this.state.description}
                                 onChange={this.update('description')}
                             />
-                            <button className='video-form-submit-btn'>
+                            <button className='video-form-submit-btn' onClick={this.handleSubmit}>
                                 {this.props.buttonType}
                             </button>
                         </div>
