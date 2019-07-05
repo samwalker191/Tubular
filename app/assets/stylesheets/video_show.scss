@@ -78,6 +78,7 @@
 .video-show-index-container h3 {
     padding-bottom: 20px;
     padding-top: 5px;
+    font-size: 18px;
 }
 
 .video-show-index-list li {
@@ -97,11 +98,11 @@
 
 .video-show-list-item img {
     width: 100%;
-    max-width: 232px;
-    min-width: 185px;
+    // max-width: 232px;
+    max-width: 185px;
     height: 100%;
-    max-height: 130px;
-    min-height: 102px;
+    // max-height: 130px;
+    max-height: 102px;
 }
 
 .video-show-details {
