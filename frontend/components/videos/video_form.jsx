@@ -7,12 +7,16 @@ class VideoForm extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = this.props.video;
+        this.state = this.props.video
     }
 
+    update(field) {
+        return e => this.setState({
+            [field]: e.currentTarget.value
+        });
+    }
 
     render() {
-
         return(
             <div className='video-form-page'>
                 <div className='video-form-filler'></div>
@@ -43,20 +47,21 @@ class VideoForm extends React.Component {
                                 className='video-form-title' 
                                 type='text'
                                 placeholder='Title'
+                                value={this.state.title}
+                                onChange={this.update('title')}
                             />
 
                             <textarea 
                                 className='video-form-description'
                                 placeholder='Description'
+                                value={this.state.description}
+                                onChange={this.update('description')}
                             />
                             <button className='video-form-submit-btn'>
                                 {this.props.buttonType}
                             </button>
                         </div>
                     </form>
-                    {/* <div className='video-form-submit-btn-container'>
-                        
-                    </div> */}
                 </div>
             </div>
         );

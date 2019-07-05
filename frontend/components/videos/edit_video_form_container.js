@@ -25,11 +25,20 @@ const mapDTP = dispatch => {
 };
 
 class EditVideoForm extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = this.props.video;
+    }
+
     componentDidMount() {
         this.props.fetchVideo(this.props.match.params.videoId);
     }
 
     render() {
+        if (this.props.video.title === '') {
+            return null;
+        }
         return(
             <VideoForm
                 action={this.props.action}
