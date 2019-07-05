@@ -8,7 +8,7 @@ class VideoShowIndexItem extends React.Component {
         return (
             <li className='video-show-list-item'>
                 <Link to={`/watch/${this.props.video.id}`} className='video-show-list-link'>
-                    <img src={this.props.video.thumbnail}></img>
+                    <p className='video-show-list-link-img-container'><img src={this.props.video.thumbnail}></img></p>
                     <div className='video-show-details'>
                         <h3>{this.props.video.title}</h3>
                         <p>{this.props.video.owner}</p>

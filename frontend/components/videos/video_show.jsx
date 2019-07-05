@@ -23,7 +23,7 @@ class VideoShow extends React.Component {
             <div>
                 <div className='video-show-page'>
                     <div className='video-show-container'>
-                        <div className='video-show'>
+                        
                             <div className='video-container'>
                                 <video controls>
                                     <source src={this.props.shownVideo.videoURL} />
@@ -48,7 +48,7 @@ class VideoShow extends React.Component {
                                     <div className='video-description'>{this.props.shownVideo.description}</div>
                                 </div>
                             </div>
-                        </div>
+                        
                     </div>
 
                     <div className='video-show-index-container'>
