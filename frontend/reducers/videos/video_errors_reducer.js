@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 
-import { RECEIVE_VIDEO, RECEIVE_ERRORS, CLEAR_ERRORS } from '../videos/videos_reducer';
+import { RECEIVE_VIDEO, RECEIVE_ERRORS, CLEAR_ERRORS } from '../../actions/videos_actions';
 
 const VideoErrorsReducer = (oldState = [], action) => {
     Object.freeze(oldState);

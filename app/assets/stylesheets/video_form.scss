@@ -4,23 +4,118 @@
     background: rgb(241, 241, 241);
 }
 
+.video-form-filler {
+    height: 65px;
+}
+
 .video-form-container {
-    width: 75%;
+    width: 37%;
     margin: auto;
-    padding-top: 100px;
+    // padding-top: 100px;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
+    background: rgb(255, 255, 255);
+    border: 2px solid rgb(230, 230, 230);
+    font-family: 'Roboto', Arial, sans-serif;
+    padding-bottom: 15px;
+}
+
+.video-form-container > h3 {
+    font-size: 18px;
+    padding: 15px 0 0;
+    align-self: flex-start;
+    margin-left: 25px;
 }
 
 .video-form {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
 }
 
-
-
-.video-form * {
-    border: 1px solid green;
+.video-form-inputs-top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 0;
 }
 
+.video-form-inputs-top label {
+    padding: 20px;
+    height: 100px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(241, 241, 241);
+    // background: rgb(221, 221, 221);
+    box-shadow: 0 0 4px rgb(220, 220, 220) inset;
+    border: 1px solid rgb(229, 229, 229);
+    border-radius: 2px;
+    box-sizing: content-box;
+}
+
+.video-form-video-upload-label {
+    margin: 0 70px 0 0;
+}
+
+.video-form-inputs-top label:hover {
+    color: #065FD4;
+    cursor: pointer;
+}
+
+.video-form-inputs-top label:active {
+    color: rgb(73, 135, 216);
+}
+
+#video-form-video-upload {
+    display: none;
+}
+
+#video-form-thumbnail-upload {
+    display: none;
+}
+
+.video-form-inputs-bottom {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.video-form-inputs-bottom input {
+    padding: 8px 0 8px 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgb(229, 229, 229);
+    border-radius: 2px;
+}
+
+.video-form-inputs-bottom textarea {
+    padding: 8px 0 8px 10px;
+    border: 1px solid rgb(229, 229, 229);
+    border-radius: 2px;
+    height: 90px;
+}
+
+// .video-form-submit-btn-container {
+//     align-self: flex-end;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     width: 17%;
+// }
+
+.video-form-submit-btn {
+    align-self: flex-end;
+    background: #1A73E8;
+    color: #fff;
+    width: 80px;
+    height: 35px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Roboto', Arial, sans-serif;
+    margin-top: 15px;
+}

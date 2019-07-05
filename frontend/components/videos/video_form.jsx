@@ -1,4 +1,7 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faVideo, faCamera, faCheck } from '@fortawesome/free-solid-svg-icons';
+
 
 class VideoForm extends React.Component {
     constructor(props) {
@@ -12,19 +15,28 @@ class VideoForm extends React.Component {
 
         return(
             <div className='video-form-page'>
+                <div className='video-form-filler'></div>
                 <div className='video-form-container'>
                     <h3>{this.props.formType}</h3>
                     <form className='video-form'>
                         <div className='video-form-inputs-top'>
-                            <input
-                                className='video-form-video-upload' 
-                                type='file'
-                            />
+                            <label htmlFor='video-form-video-upload' className='video-form-video-upload-label'>
+                                <FontAwesomeIcon icon={faVideo} size='3x'/>
+                                <input
+                                    id='video-form-video-upload' 
+                                    type='file'
+                                    accept='video/*'
+                                />
+                            </label>
 
-                            <input 
-                                className='video-form-thumbnail-upload'
-                                type='file'
-                            />
+                            <label htmlFor='video-form-thumbnail-upload' >
+                                <FontAwesomeIcon icon={faCamera} size='3x' />                                
+                                <input 
+                                    id='video-form-thumbnail-upload'
+                                    type='file'
+                                    accept='image/*'
+                                />
+                            </label>
                         </div>
                         <div className='video-form-inputs-bottom'>
                             <input
@@ -37,9 +49,14 @@ class VideoForm extends React.Component {
                                 className='video-form-description'
                                 placeholder='Description'
                             />
+                            <button className='video-form-submit-btn'>
+                                {this.props.buttonType}
+                            </button>
                         </div>
                     </form>
-                    <button>{this.props.buttonType}</button>
+                    {/* <div className='video-form-submit-btn-container'>
+                        
+                    </div> */}
                 </div>
             </div>
         );
