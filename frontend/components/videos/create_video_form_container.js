@@ -8,7 +8,8 @@ const mapSTP = state => {
         video: { title: '', description: null },
         errors: state.errors.videos,
         formType: 'Upload your video',
-        currentUser: currentUser
+        currentUser: currentUser,
+        buttonType: 'Publish'
     });
 };
 

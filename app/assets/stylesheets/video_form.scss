@@ -1,0 +1,26 @@
+.video-form-page {
+    width: 100%;
+    height: 100vh;
+    background: rgb(241, 241, 241);
+}
+
+.video-form-container {
+    width: 75%;
+    margin: auto;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.video-form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.video-form * {
+    border: 1px solid green;
+}
+

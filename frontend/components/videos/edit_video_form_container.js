@@ -10,7 +10,8 @@ const mapSTP = (state, ownProps) => {
     return ({
         video: video,
         errors: state.errors.videos,
-        formType: 'Update Video Details',
+        formType: 'Update Your Video Details',
+        buttonType: 'Update',
         currentUser: currentUser,
     });
 };
@@ -36,6 +37,7 @@ class EditVideoForm extends React.Component {
                 video={this.props.video}
                 errors={this.props.errors}
                 currentUser={this.props.currentUser}
+                buttonType={this.props.buttonType}
             />
         );
     }
