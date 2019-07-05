@@ -46,7 +46,9 @@ class Header extends React.Component {
                 </div>
 
                 <div className='header-right'>
-                    <FontAwesomeIcon icon={faVideo} />
+                    <Link to='/upload' className='header-right-upload'>
+                        <FontAwesomeIcon icon={faVideo} />
+                    </Link>
                     {authButton}
                 </div>
             </div>

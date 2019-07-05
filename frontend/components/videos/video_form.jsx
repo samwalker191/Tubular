@@ -33,6 +33,7 @@ class VideoForm extends React.Component {
     }
 
     handleSubmit(e) {
+        debugger
         e.preventDefault();
         const formData= new FormData();
         formData.append('video[title]', this.state.title);
