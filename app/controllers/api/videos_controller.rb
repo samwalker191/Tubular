@@ -9,9 +9,16 @@ class Api::VideosController < ApplicationController
     end
 
     def create
+        debugger
+        if params[:video][:video] == 'null' 
+            render json: ['Need an attached video'], status: 422
+            return nil
+        elsif params[:video][:thumbnail] == 'null'
+            render json: ['Need an attached thumbnail'], status: 422
+            return nil
+        end
+
         @video = Video.new(video_params)
-        @video.video.attach(params[:video][:video])
-        @video.thumbnail.attach(params[:video][:thumbnail])
         @video.owner_id = current_user.id
 
         if @video.save
@@ -43,6 +50,7 @@ class Api::VideosController < ApplicationController
         @video = Video.find(params[:id])
         if current_user.id == @video.owner_id
             @video.destroy
+            render :show
         else
             render json: ['Must be owner of video to destroy'], status: 422
         end

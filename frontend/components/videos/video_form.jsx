@@ -10,6 +10,7 @@ class VideoForm extends React.Component {
         this.state = {
             title: this.props.video.title,
             description: this.props.video.description,
+            thumbnail: this.props.video.thumbnail,
             thumbnailFile: null,
             videoFile: null
         }
@@ -25,7 +26,17 @@ class VideoForm extends React.Component {
     }
 
     handleThumbnailFile(e) {
-        this.setState({ thumbnailFile: e.currentTarget.files[0] })
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+
+            this.setState({ thumbnailFile: file, thumbnail: fileReader.result })
+        };
+
+        if (file) {
+            fileReader.readAsDataURL(file);
+        }
+        
     }
 
     handleVideoFile(e) {
@@ -33,7 +44,6 @@ class VideoForm extends React.Component {
     }
 
     handleSubmit(e) {
-        debugger
         e.preventDefault();
         const formData= new FormData();
         formData.append('video[title]', this.state.title);
@@ -48,7 +58,7 @@ class VideoForm extends React.Component {
                 data: formData,
                 contentType: false,
                 processData: false
-            });
+            }).then(() => this.props.history.push('/'));
         } else if (this.props.formType === 'Update your video details') {
             $.ajax({
                 method: 'PATCH',
@@ -56,11 +66,13 @@ class VideoForm extends React.Component {
                 data: formData,
                 contentType: false,
                 processData: false
-            });
+            }).then(() => this.props.history.push('/'));
         } 
     }
 
     render() {
+        const thumbnailPreview = this.state.thumbnail ? <img src={this.state.thumbnail} /> : <FontAwesomeIcon icon={faCamera} size='3x' />;
+        const videoAttached = this.state.videoFile ? <FontAwesomeIcon icon={faCheck} size='3x' className='video-check'/> : <FontAwesomeIcon icon={faVideo} size='3x' />
         return(
             <div className='video-form-page'>
                 <div className='video-form-filler'></div>
@@ -69,7 +81,7 @@ class VideoForm extends React.Component {
                     <form className='video-form'>
                         <div className='video-form-inputs-top'>
                             <label htmlFor='video-form-video-upload' className='video-form-video-upload-label'>
-                                <FontAwesomeIcon icon={faVideo} size='3x'/>
+                                {videoAttached}
                                 <input
                                     id='video-form-video-upload' 
                                     type='file'
@@ -78,8 +90,8 @@ class VideoForm extends React.Component {
                                 />
                             </label>
 
-                            <label htmlFor='video-form-thumbnail-upload' >
-                                <FontAwesomeIcon icon={faCamera} size='3x' />                                
+                            <label htmlFor='video-form-thumbnail-upload' className='video-form-thumbnail-upload-label'>
+                                {thumbnailPreview}                                 
                                 <input 
                                     id='video-form-thumbnail-upload'
                                     type='file'
