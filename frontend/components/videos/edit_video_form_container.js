@@ -14,7 +14,7 @@ const mapSTP = (state, ownProps) => {
     let video = state.entities.videos[ownProps.match.params.videoId] || defaultVideo;
     return ({
         video: video,
-        errors: state.errors.videos,
+        errors: state.errors.videoErrors,
         formType: 'Update your video details',
         buttonType: 'Update',
         currentUser: currentUser,

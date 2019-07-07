@@ -11,7 +11,7 @@ const mapSTP = state => {
             videoURL: null,
             thumbnail: null
         },
-        errors: state.errors.videos,
+        errors: state.errors.videoErrors,
         formType: 'Upload your video',
         currentUser: currentUser,
         buttonType: 'Publish'

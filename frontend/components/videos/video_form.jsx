@@ -57,7 +57,7 @@ class VideoForm extends React.Component {
         formData.append('video[description]', this.state.description);
         formData.append('video[video]', this.state.videoFile);
         formData.append('video[thumbnail]', this.state.thumbnailFile);
-        
+        // update api with these methods and then put those methods here instead. this is to get error responses to actually hit the reducers.
         if (this.props.formType === 'Upload your video') {
             $.ajax({
                 method: 'POST',
@@ -78,8 +78,14 @@ class VideoForm extends React.Component {
     }
 
     render() {
+        let errors = this.props.errors.map((error, idx) =>
+            <li key={`error-${idx}`}>
+                {error}
+            </li>)
+
         const thumbnailPreview = this.state.thumbnail ? <img src={this.state.thumbnail} /> : <FontAwesomeIcon icon={faCamera} size='3x' />;
         const videoAttached = this.state.videoFile ? <FontAwesomeIcon icon={faCheck} size='3x' className='video-check'/> : <FontAwesomeIcon icon={faVideo} size='3x' />
+
         let uploadClassname;
         let deleteBtn;
         if (this.props.formType === 'Update your video details') {
@@ -130,6 +136,9 @@ class VideoForm extends React.Component {
                                 value={this.state.description}
                                 onChange={this.update('description')}
                             />
+                            <ul className='session-form-errors'>
+                                {errors}
+                            </ul>
                             <div className='video-form-buttons'>
                                 {deleteBtn}
                                 <button className='video-form-submit-btn' onClick={this.handleSubmit}>
