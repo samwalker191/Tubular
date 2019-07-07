@@ -18,6 +18,7 @@ class VideoForm extends React.Component {
         this.handleThumbnailFile = this.handleThumbnailFile.bind(this);
         this.handleVideoFile = this.handleVideoFile.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     update(field) {
@@ -31,7 +32,7 @@ class VideoForm extends React.Component {
         const fileReader = new FileReader();
         fileReader.onloadend = () => {
 
-            this.setState({ thumbnailFile: file, thumbnail: fileReader.result })
+            this.setState({ thumbnailFile: file, thumbnail: fileReader.result });
         };
 
         if (file) {
@@ -40,11 +41,13 @@ class VideoForm extends React.Component {
     }
 
     handleVideoFile(e) {
-        this.setState({ videoFile: e.currentTarget.files[0] })
+        this.setState({ videoFile: e.currentTarget.files[0] });
     }
 
     handleDelete() {
-        
+        debugger
+        this.props.deleteVideo(this.props.match.params.videoId)
+            .then(() => this.props.history.push('/'));
     }
 
     handleSubmit(e) {
@@ -78,10 +81,12 @@ class VideoForm extends React.Component {
         const thumbnailPreview = this.state.thumbnail ? <img src={this.state.thumbnail} /> : <FontAwesomeIcon icon={faCamera} size='3x' />;
         const videoAttached = this.state.videoFile ? <FontAwesomeIcon icon={faCheck} size='3x' className='video-check'/> : <FontAwesomeIcon icon={faVideo} size='3x' />
         let uploadClassname;
+        let deleteBtn;
         if (this.props.formType === 'Update your video details') {
-            uploadClassname = 'hidden'
+            uploadClassname = 'hidden';
+            deleteBtn = <button onClick={this.handleDelete} className='video-form-edit-delete'>Delete</button>
         } else {
-            uploadClassname = 'video-form-video-upload-label'
+            uploadClassname = 'video-form-video-upload-label';
         }
         return(
             <div className='video-form-page'>
@@ -125,9 +130,12 @@ class VideoForm extends React.Component {
                                 value={this.state.description}
                                 onChange={this.update('description')}
                             />
-                            <button className='video-form-submit-btn' onClick={this.handleSubmit}>
-                                {this.props.buttonType}
-                            </button>
+                            <div className='video-form-buttons'>
+                                {deleteBtn}
+                                <button className='video-form-submit-btn' onClick={this.handleSubmit}>
+                                    {this.props.buttonType}
+                                </button>
+                            </div>
                         </div>
                     </form>
                 </div>
