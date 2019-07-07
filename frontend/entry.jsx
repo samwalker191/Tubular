@@ -25,9 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // FOR TESTING
     window.store = store;
     window.getState = store.getState;
-    window.fetchVideo = fetchVideo;
-    window.fetchVideos = fetchVideos;
-    window.updateVideo = updateVideo;
+    // window.fetchVideo = fetchVideo;
+    // window.fetchVideos = fetchVideos;
+    // window.updateVideo = updateVideo;
     // FOR TESTING
 
     ReactDOM.render(<Root store={store}/>, root)

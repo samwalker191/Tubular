@@ -23,7 +23,7 @@ const mapSTP = (state, ownProps) => {
 
 const mapDTP = dispatch => {
     return ({
-        action: video => dispatch(updateVideo(video)),
+        action: (video, formData) => dispatch(updateVideo(video, formData)),
         fetchVideo: videoId => dispatch(fetchVideo(videoId)),
         deleteVideo: videoId => dispatch(deleteVideo(videoId))
     })

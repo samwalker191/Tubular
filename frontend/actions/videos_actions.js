@@ -3,7 +3,7 @@ import * as VideosAPIUtil from '../util/videos_api_util';
 export const RECEIVE_VIDEOS = 'RECEIVE_VIDEOS';
 export const RECEIVE_VIDEO = 'RECEIVE_VIDEO';
 export const REMOVE_VIDEO = 'REMOVE_VIDEO';
-export const RECEIVE_VIDEO_ERRORS = 'RECEIVE_ERRORS';
+export const RECEIVE_VIDEO_ERRORS = 'RECEIVE_VIDEO_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 const receiveVideos = videos => ({
@@ -46,16 +46,16 @@ export const fetchVideo = videoId => dispatch => (
         )
 );
 
-export const createVideo = video => dispatch => (
-    VideosAPIUtil.createVideo(video)
+export const createVideo = formData => dispatch => (
+    VideosAPIUtil.createVideo(formData)
         .then(
             video => dispatch(receiveVideo(video)),
-            errors => dispatch(receiveErrors(errors))
+            errors => dispatch(receiveErrors(errors))   
         )
 );
 
-export const updateVideo = video => dispatch => (
-    VideosAPIUtil.updateVideo(video)
+export const updateVideo = (video, formData) => dispatch => (
+    VideosAPIUtil.updateVideo(video, formData)
         .then(
             video => dispatch(receiveVideo(video)),
             errors => dispatch(receiveErrors(errors))

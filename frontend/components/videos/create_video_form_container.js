@@ -21,7 +21,7 @@ const mapSTP = state => {
 const mapDTP = dispatch => {
     
     return ({
-        action: video => dispatch(createVideo(video)),
+        action: formData => dispatch(createVideo(formData)),
         deleteVideo: videoId => dispatch(deleteVideo(videoId))
     })
 };

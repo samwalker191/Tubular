@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faVideo, faCamera, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faVideo, faCamera, faCheck, faSync } from '@fortawesome/free-solid-svg-icons';
 import { withRouter } from 'react-router';
 
 
@@ -13,8 +13,10 @@ class VideoForm extends React.Component {
             description: this.props.video.description,
             thumbnail: this.props.video.thumbnail,
             thumbnailFile: null,
-            videoFile: null
-        }
+            videoFile: null,
+            loading: false
+        };
+
         this.handleThumbnailFile = this.handleThumbnailFile.bind(this);
         this.handleVideoFile = this.handleVideoFile.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -45,7 +47,7 @@ class VideoForm extends React.Component {
     }
 
     handleDelete() {
-        debugger
+        
         this.props.deleteVideo(this.props.match.params.videoId)
             .then(() => this.props.history.push('/'));
     }
@@ -57,23 +59,21 @@ class VideoForm extends React.Component {
         formData.append('video[description]', this.state.description);
         formData.append('video[video]', this.state.videoFile);
         formData.append('video[thumbnail]', this.state.thumbnailFile);
-        // update api with these methods and then put those methods here instead. this is to get error responses to actually hit the reducers.
+
+        this.setState({
+            loading: true
+        });
+
         if (this.props.formType === 'Upload your video') {
-            $.ajax({
-                method: 'POST',
-                url: '/api/videos',
-                data: formData,
-                contentType: false,
-                processData: false
-            }).then(() => this.props.history.push('/'));
+            this.props.action(formData)
+                .then(() => this.props.history.push('/'),
+                    () => this.setState({ loading: false })
+                );
         } else if (this.props.formType === 'Update your video details') {
-            $.ajax({
-                method: 'PATCH',
-                url: `/api/videos/${this.props.video.id}`,
-                data: formData,
-                contentType: false,
-                processData: false
-            }).then(() => this.props.history.push(`/watch/${this.props.video.id}`));
+            this.props.action(this.props.video, formData)
+                .then(() => this.props.history.push(`/watch/${this.props.video.id}`),
+                    () => this.setState({ loading: false })
+                );
         } 
     }
 
@@ -82,6 +82,12 @@ class VideoForm extends React.Component {
             <li key={`error-${idx}`}>
                 {error}
             </li>)
+        let loading;
+        if (this.state.loading) {
+            loading = <FontAwesomeIcon icon={faSync} spin />
+        } else {
+            loading = `${this.props.buttonType}`
+        }
 
         const thumbnailPreview = this.state.thumbnail ? <img src={this.state.thumbnail} /> : <FontAwesomeIcon icon={faCamera} size='3x' />;
         const videoAttached = this.state.videoFile ? <FontAwesomeIcon icon={faCheck} size='3x' className='video-check'/> : <FontAwesomeIcon icon={faVideo} size='3x' />
@@ -136,13 +142,13 @@ class VideoForm extends React.Component {
                                 value={this.state.description}
                                 onChange={this.update('description')}
                             />
-                            <ul className='session-form-errors'>
+                            <ul className='video-form-errors'>
                                 {errors}
                             </ul>
                             <div className='video-form-buttons'>
                                 {deleteBtn}
                                 <button className='video-form-submit-btn' onClick={this.handleSubmit}>
-                                    {this.props.buttonType}
+                                    {loading}
                                 </button>
                             </div>
                         </div>
@@ -154,3 +160,19 @@ class VideoForm extends React.Component {
 }
 
 export default withRouter(VideoForm);
+
+// $.ajax({
+//     method: 'PATCH',
+//     url: `/api/videos/${this.props.video.id}`,
+//     data: formData,
+//     contentType: false,
+//     processData: false
+// })
+
+// $.ajax({
+//     method: 'POST',
+//     url: '/api/videos',
+//     data: formData,
+//     contentType: false,
+//     processData: false
+// })

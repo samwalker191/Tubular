@@ -35,7 +35,6 @@ class Api::VideosController < ApplicationController
     def update
         
         @video = Video.find(params[:id])
-        
         if params[:video][:thumbnail] == 'null'
             params[:video].delete('thumbnail')
         end
