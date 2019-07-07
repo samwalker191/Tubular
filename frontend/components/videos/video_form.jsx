@@ -82,6 +82,7 @@ class VideoForm extends React.Component {
             <li key={`error-${idx}`}>
                 {error}
             </li>)
+            
         let loading;
         if (this.state.loading) {
             loading = <FontAwesomeIcon icon={faSync} spin />
