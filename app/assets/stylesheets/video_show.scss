@@ -36,6 +36,7 @@
     font-size: 20px;
     padding-bottom: 20px;
     display: inline-block;
+    width: 65%;
 }
 
 .video-stats {
@@ -71,6 +72,7 @@
 .video-description {
     padding-bottom: 30px;
     border-bottom: 2px solid rgb(229, 229, 229);
+    overflow-wrap: break-word;
 }
 
 .video-owner {
@@ -130,18 +132,34 @@
     // max-height: 102px;
 }
 
-.video-show-details {
+.video-show-index-details {
     padding-left: 10px;
 }
 
-.video-show-details h3 {
+.video-show-index-details h3 {
     font-weight: 500;
     font-size: 15px;
     padding-bottom: 13px;
 }
 
-.video-show-details p {
+.video-show-index-details p {
     font-size: 14px;
     color: #606060;
     padding-bottom: 10px;
+}
+
+.video-title-edit {
+    display: flex;
+    justify-content: space-between;
+}
+
+.video-show-edit-btn {
+    background: #1A73E8;
+    color: #fff;
+    width: 80px;
+    height: 35px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Roboto', Arial, sans-serif;
+    padding: 7px 10px;
 }

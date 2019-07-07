@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import VideoShowIndexItem from './video_show_index_item';
+import { Link } from 'react-router-dom';
 
 class VideoShow extends React.Component {
 
@@ -19,6 +20,13 @@ class VideoShow extends React.Component {
             (video, idx) => <VideoShowIndexItem video={video} key={`video-show-index-${idx}`} />
         )
 
+        let editBtn;
+        if (this.props.currentUser) {
+            if (this.props.currentUser.id === this.props.shownVideo.owner_id) {
+                editBtn = <Link to={`/edit/${this.props.shownVideo.id}`} className='video-show-edit-btn'>Edit Video</Link>
+            }
+        }
+
         return (
             <div>
                 <div className='video-show-page'>
@@ -31,7 +39,11 @@ class VideoShow extends React.Component {
                             </div>
                             <div className='video-show-details'>
                                 <div className='video-show-details-top'>
-                                    <span className='video-title'>{this.props.shownVideo.title}</span>
+                                    <div className='video-title-edit'>
+                                        <div className='video-title'>{this.props.shownVideo.title}</div>
+                                        <div >{editBtn}</div>
+                                    </div>
+
                                     <div className='video-stats'>
                                         <span>0 Views</span>
                                         <ul>

@@ -27,6 +27,7 @@
     padding: 15px 0 0;
     align-self: flex-start;
     margin-left: 25px;
+    padding-bottom: 15px;
 }
 
 .video-form {
@@ -41,10 +42,14 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 15px 0;
+    padding-bottom: 15px;
 }
 
 .video-form-inputs-top label {
+    
+}
+
+.video-form-video-upload-label {
     padding: 20px;
     height: 100px;
     width: 200px;
@@ -56,10 +61,21 @@
     border: 2px solid rgb(229, 229, 229);
     border-radius: 2px;
     box-sizing: content-box;
+    margin: 0 70px 0 0;
 }
 
-.video-form-video-upload-label {
-    margin: 0 70px 0 0;
+.video-form-thumbnail-upload-label {
+    padding: 20px;
+    height: 100px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(241, 241, 241);
+    box-shadow: 0 0 4px rgb(220, 220, 220) inset;
+    border: 2px solid rgb(229, 229, 229);
+    border-radius: 2px;
+    box-sizing: content-box;
 }
 
 .video-form-thumbnail-upload-label img {
@@ -135,3 +151,6 @@
     box-shadow: 0.5px 1px 2px rgb(0, 125, 225);
 }
 
+.hidden {
+    display: none;
+}

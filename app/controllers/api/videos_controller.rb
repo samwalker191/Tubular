@@ -9,7 +9,6 @@ class Api::VideosController < ApplicationController
     end
 
     def create
-        debugger
         if params[:video][:video] == 'null' 
             render json: ['Need an attached video'], status: 422
             return nil
@@ -18,7 +17,7 @@ class Api::VideosController < ApplicationController
             return nil
         end
 
-        @video = Video.new(video_params)
+        @video = Video.new(video_params_create)
         @video.owner_id = current_user.id
 
         if @video.save
@@ -34,9 +33,14 @@ class Api::VideosController < ApplicationController
     end
 
     def update
+        
         @video = Video.find(params[:id])
+        
+        if params[:video][:thumbnail] == 'null'
+            params[:video].delete('thumbnail')
+        end
         if current_user.id == @video.owner_id
-            if @video.update_attributes(video_params)
+            if @video.update_attributes(video_params_edit)
                 render :show
             else
                 render json: @video.errors.full_messages, status: 422
@@ -57,7 +61,11 @@ class Api::VideosController < ApplicationController
     end
 
     private
-    def video_params
+    def video_params_create
         params.require(:video).permit(:title, :description, :owner_id, :video, :thumbnail)
+    end
+    
+    def video_params_edit
+        params.require(:video).permit(:title, :description, :owner_id, :thumbnail)
     end
 end

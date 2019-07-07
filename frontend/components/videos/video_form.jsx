@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVideo, faCamera, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { withRouter } from 'react-router';
 
 
 class VideoForm extends React.Component {
@@ -36,11 +37,14 @@ class VideoForm extends React.Component {
         if (file) {
             fileReader.readAsDataURL(file);
         }
-        
     }
 
     handleVideoFile(e) {
         this.setState({ videoFile: e.currentTarget.files[0] })
+    }
+
+    handleDelete() {
+        
     }
 
     handleSubmit(e) {
@@ -50,7 +54,7 @@ class VideoForm extends React.Component {
         formData.append('video[description]', this.state.description);
         formData.append('video[video]', this.state.videoFile);
         formData.append('video[thumbnail]', this.state.thumbnailFile);
-
+        
         if (this.props.formType === 'Upload your video') {
             $.ajax({
                 method: 'POST',
@@ -66,13 +70,19 @@ class VideoForm extends React.Component {
                 data: formData,
                 contentType: false,
                 processData: false
-            }).then(() => this.props.history.push('/'));
+            }).then(() => this.props.history.push(`/watch/${this.props.video.id}`));
         } 
     }
 
     render() {
         const thumbnailPreview = this.state.thumbnail ? <img src={this.state.thumbnail} /> : <FontAwesomeIcon icon={faCamera} size='3x' />;
         const videoAttached = this.state.videoFile ? <FontAwesomeIcon icon={faCheck} size='3x' className='video-check'/> : <FontAwesomeIcon icon={faVideo} size='3x' />
+        let uploadClassname;
+        if (this.props.formType === 'Update your video details') {
+            uploadClassname = 'hidden'
+        } else {
+            uploadClassname = 'video-form-video-upload-label'
+        }
         return(
             <div className='video-form-page'>
                 <div className='video-form-filler'></div>
@@ -80,7 +90,7 @@ class VideoForm extends React.Component {
                     <h3>{this.props.formType}</h3>
                     <form className='video-form'>
                         <div className='video-form-inputs-top'>
-                            <label htmlFor='video-form-video-upload' className='video-form-video-upload-label'>
+                            <label htmlFor='video-form-video-upload' className={uploadClassname}>
                                 {videoAttached}
                                 <input
                                     id='video-form-video-upload' 
@@ -126,4 +136,4 @@ class VideoForm extends React.Component {
     }
 }
 
-export default VideoForm;
+export default withRouter(VideoForm);
