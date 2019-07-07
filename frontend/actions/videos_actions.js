@@ -3,7 +3,7 @@ import * as VideosAPIUtil from '../util/videos_api_util';
 export const RECEIVE_VIDEOS = 'RECEIVE_VIDEOS';
 export const RECEIVE_VIDEO = 'RECEIVE_VIDEO';
 export const REMOVE_VIDEO = 'REMOVE_VIDEO';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const RECEIVE_VIDEO_ERRORS = 'RECEIVE_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 const receiveVideos = videos => ({
@@ -22,7 +22,7 @@ const removeVideo = videoId => ({
 });
 
 const receiveErrors = errors => ({
-    type: RECEIVE_ERRORS,
+    type: RECEIVE_VIDEO_ERRORS,
     errors
 });
 

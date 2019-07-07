@@ -5,7 +5,7 @@ import { RECEIVE_VIDEO, RECEIVE_ERRORS, CLEAR_ERRORS } from '../../actions/video
 const VideoErrorsReducer = (oldState = [], action) => {
     Object.freeze(oldState);
     switch (action.type) {
-        case RECEIVE_ERRORS:
+        case RECEIVE_VIDEO_ERRORS:
             return action.errors.responseJSON;
         case RECEIVE_VIDEO:
             return [];
