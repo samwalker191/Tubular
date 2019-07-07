@@ -17,7 +17,8 @@ const UserAuth = () => (
         <Switch>
             <AuthRoute exact path='/signin' component={SignInFormContainer} />
             <AuthRoute exact path='/signup' component={SignUpFormContainer} />
-            <Route path='/' component={MainApp}/>
+            <Route  exact path='/' component={MainApp} />
+            <Redirect to='/' />
         </Switch>
     </div>
 );
