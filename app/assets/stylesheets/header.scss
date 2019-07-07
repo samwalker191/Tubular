@@ -5,7 +5,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 1px 10px hsl(0, 0%, 96%);
+    box-shadow: 0 1px 10px hsl(0, 0%, 90%);
+    background: rgb(255, 255, 255);
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    top: 0;
 }
 
 .header-left {
@@ -35,11 +41,12 @@
 }
 
 .header-logo span {
-    font-family: 'Roboto Condensed', sans-serif;
+    // font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Pathway Gothic One', sans-serif;
     font-weight: bolder;
     padding-left: 3px;
     font-stretch: extra-condensed;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .header-right {
@@ -50,7 +57,7 @@
     padding-right: 25px;
 }
 
-.header-right > svg {
+.header-right-upload {
     color: #606060;
     font-size: 20px;
 }

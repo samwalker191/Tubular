@@ -4,7 +4,7 @@ import { signup, clearErrors } from '../../actions/session_actions';
 
 const mapSTP = state => {
     return ({
-        errors: state.errors.session,
+        errors: state.errors.sessionErrors,
         formType: 'Create Your Account'
     });
 };
