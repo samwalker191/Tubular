@@ -108,7 +108,7 @@ class VideoShow extends React.Component {
                     <div className='video-show-container'>
                         
                             <div className='video-container'>
-                                <video width="100%" height="auto" controls>
+                                <video width="100%" controls>
                                     <source src={this.props.shownVideo.videoURL} type="video/mp4"></source>
                                 </video>
                             </div>

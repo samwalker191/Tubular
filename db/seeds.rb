@@ -45,4 +45,15 @@ ActiveRecord::Base.transaction do
     vid2.thumbnail.attach(io: file, filename: 'test_thumbnail.jpg')
     file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/test_vid.mp4')
     vid2.video.attach(io: file, filename: 'test_vid.mp4')
+
+    vid3 = Video.create!(
+        title: 'Crazy Drivers | PUBG w/ Friends',
+        description: 'Got to look both ways before crossing',
+        owner_id: u3.id,
+        views: 200
+    )
+    file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/driver_thumbnail.png')
+    vid2.thumbnail.attach(io: file, filename: 'test_thumbnail.jpg')
+    file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/crazydriver.mp4')
+    vid2.video.attach(io: file, filename: 'test_vid.mp4')
 end
