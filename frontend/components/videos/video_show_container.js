@@ -5,7 +5,7 @@ import VideoShow from './video_show';
 
 const mapSTP = (state, ownProps) => {
     let currentUser = state.session.id === null ? null : state.entities.users[state.session.id];
-    // let currUserLike = state.entities.likes
+    let currUserLike = state.entities.likes === undefined ? null : state.entities.like
     return ({
         videos: Object.values(state.entities.videos),
         shownVideo: state.entities.videos[ownProps.match.params.videoId],

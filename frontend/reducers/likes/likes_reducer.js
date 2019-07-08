@@ -7,17 +7,15 @@ const LikesReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     switch (action.type) {
         case RECEIVE_LIKE:
-            return merge({}, oldState, { [action.like.id]: action.like });
+            return action.like;
         case RECEIVE_VIDEO:
             if (action.payload.like) {
-                return merge({}, oldState, { [action.payload.like.id]: action.payload.like });
+                return action.payload.like;
             } else {
-                return oldState;
+                return {};
             }
         case DELETE_LIKE:
-            let newState = merge({}, oldState);
-            delete newState[action.likeId];
-            return newState;
+            return {};
         default:
             return oldState;    
     }
