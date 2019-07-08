@@ -6,7 +6,7 @@ class Api::LikesController < ApplicationController
         @like.user_id = current_user.id
 
         if @like.save
-            render json: ['Success!']
+            render :show
         else
             render json: @like.errors.full_messages, status: 422
     end
@@ -19,7 +19,7 @@ class Api::LikesController < ApplicationController
         # )
         @like = Like.find(params[:id])
         if @like.update_attributes(update_like_params)
-            render json: ['Success!']
+            render :show
         else
             render json: @like.errors.full_messages, status: 422
         end
