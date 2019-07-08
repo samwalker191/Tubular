@@ -28,6 +28,10 @@ class User < ApplicationRecord
         source: :likeable,
         source_type: 'Video'
 
+    has_many :comments,
+        foreign_key: :user_id,
+        class_name: :Comment
+
     attr_reader :password
 
     after_initialize :ensure_session_token
