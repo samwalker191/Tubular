@@ -53,7 +53,7 @@ ActiveRecord::Base.transaction do
         views: 200
     )
     file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/driver_thumbnail.png')
-    vid2.thumbnail.attach(io: file, filename: 'test_thumbnail.jpg')
+    vid3.thumbnail.attach(io: file, filename: 'driver_thumbnail.png')
     file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/crazydriver.mp4')
-    vid2.video.attach(io: file, filename: 'test_vid.mp4')
+    vid3.video.attach(io: file, filename: 'crazydriver.mp4')
 end
