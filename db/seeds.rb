@@ -30,10 +30,10 @@ ActiveRecord::Base.transaction do
         views: 100
     )
 
-    # file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/headshot_thumbnail.png')
-    # vid1.thumbnail.attach(io: file, filename: 'headshot_thumbnail.png')
-    # file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/headshot.mp4')
-    # vid1.video.attach(io: file, filename: 'headshot.mp4')
+    file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/headshot_thumbnail.png')
+    vid1.thumbnail.attach(io: file, filename: 'headshot_thumbnail.png')
+    file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/headshot.mp4')
+    vid1.video.attach(io: file, filename: 'headshot.mp4')
 
     vid2 = Video.create!(
         title: 'TESTER VIDEO',
@@ -41,8 +41,8 @@ ActiveRecord::Base.transaction do
         owner_id: u1.id,
         views: 5
     )
-    # file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/test_thumbnail.jpg')
-    # vid2.thumbnail.attach(io: file, filename: 'test_thumbnail.jpg')
-    # file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/test_vid.mp4')
-    # vid2.video.attach(io: file, filename: 'test_vid.mp4')
+    file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/test_thumbnail.jpg')
+    vid2.thumbnail.attach(io: file, filename: 'test_thumbnail.jpg')
+    file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/test_vid.mp4')
+    vid2.video.attach(io: file, filename: 'test_vid.mp4')
 end
