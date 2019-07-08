@@ -31,6 +31,13 @@ class Header extends React.Component {
                         </button>
         }
 
+        let uploadSend;
+        if (this.props.currentUserId){
+            uploadSend = '/upload';
+        } else {
+            uploadSend= '/signin';
+        }
+
         return (
             <div className='header'>
                 <div className='header-left'>
@@ -46,7 +53,7 @@ class Header extends React.Component {
                 </div>
 
                 <div className='header-right'>
-                    <Link to='/upload' className='header-right-upload'>
+                    <Link to={`${uploadSend}`} className='header-right-upload'>
                         <FontAwesomeIcon icon={faVideo} />
                     </Link>
                     {authButton}
