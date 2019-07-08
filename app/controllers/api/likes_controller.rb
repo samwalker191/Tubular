@@ -18,10 +18,14 @@ class Api::LikesController < ApplicationController
         #     likeable_type: params[:like][:likeable_type]
         # )
         @like = Like.find(params[:id])
-        if @like.update_attributes(update_like_params)
-            render :show
+        if current_user.id == @like.user_id
+            if @like.update_attributes(update_like_params)
+                render :show
+            else
+                render json: @like.errors.full_messages, status: 422
+            end
         else
-            render json: @like.errors.full_messages, status: 422
+            render json: ['Must be owner of like to edit'], status: 422
         end
     end
 
@@ -31,8 +35,14 @@ class Api::LikesController < ApplicationController
         #     likeable_id: params[:like][:likeable_id],
         #     likeable_type: params[:like][:likeable_type]
         # )
-        like = Like.find(params[:id])
-        like.destroy
+        @like = Like.find(params[:id])
+        if current_user.id == @like.user_id
+            @like.destroy
+            render :show
+        else
+            render json: ['Must be owner of like to destroy'], status: 422
+        end
+        
     end
 
     private
