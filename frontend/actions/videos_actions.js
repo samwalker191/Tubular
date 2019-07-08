@@ -11,9 +11,9 @@ const receiveVideos = videos => ({
     videos
 });
 
-const receiveVideo = video => ({
+const receiveVideo = payload => ({
     type: RECEIVE_VIDEO,
-    video
+    payload
 });
 
 const removeVideo = videoId => ({
@@ -41,7 +41,7 @@ export const fetchVideos = query => dispatch => (
 export const fetchVideo = videoId => dispatch => (
     VideosAPIUtil.fetchVideo(videoId)
         .then(
-            video => dispatch(receiveVideo(video)),
+            payload => dispatch(receiveVideo(payload)),
             errors => dispatch(receiveErrors(errors))
         )
 );
@@ -49,7 +49,7 @@ export const fetchVideo = videoId => dispatch => (
 export const createVideo = formData => dispatch => (
     VideosAPIUtil.createVideo(formData)
         .then(
-            video => dispatch(receiveVideo(video)),
+            payload => dispatch(receiveVideo(payload)),
             errors => dispatch(receiveErrors(errors))   
         )
 );
@@ -57,7 +57,7 @@ export const createVideo = formData => dispatch => (
 export const updateVideo = (video, formData) => dispatch => (
     VideosAPIUtil.updateVideo(video, formData)
         .then(
-            video => dispatch(receiveVideo(video)),
+            payload => dispatch(receiveVideo(payload)),
             errors => dispatch(receiveErrors(errors))
         )
 );
@@ -65,7 +65,7 @@ export const updateVideo = (video, formData) => dispatch => (
 export const deleteVideo = videoId => dispatch => (
     VideosAPIUtil.deleteVideo(videoId)
         .then(
-            video => dispatch(removeVideo(video.id)),
+            payload => dispatch(removeVideo(payload.video.id)),
             errors => dispatch(receiveErrors(errors))
         )
 );
