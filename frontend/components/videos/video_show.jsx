@@ -5,10 +5,27 @@ import VideoShowIndexItem from './video_show_index_item';
 import { Link } from 'react-router-dom';
 
 class VideoShow extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = this.props.shownVideo;
+    }
 
     componentDidMount() {
         this.props.fetchVideos('');
         this.props.fetchVideo(this.props.match.params.videoId);
+        
+    }
+
+    componentDidUpdate(prevProps) {
+        
+        if (prevProps.shownVideo) {
+            if (prevProps.shownVideo.id != this.props.match.params.videoId) {
+                this.props.fetchVideo(this.props.match.params.videoId)
+                    .then(() => window.location.reload())
+                
+            }
+        }
     }
 
     render() {
@@ -33,8 +50,8 @@ class VideoShow extends React.Component {
                     <div className='video-show-container'>
                         
                             <div className='video-container'>
-                                <video controls>
-                                    <source src={this.props.shownVideo.videoURL} />
+                                <video width="100%" height="auto" controls>
+                                    <source src={this.props.shownVideo.videoURL} type="video/mp4"></source>
                                 </video>
                             </div>
                             <div className='video-show-details'>

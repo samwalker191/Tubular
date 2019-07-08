@@ -10,6 +10,11 @@
 .video-show-container {
     padding-right: 24px;
     width: 60%;
+    height: auto;
+}
+
+.video-show-container video {
+    object-fit: contain;
 }
 
 .video-show {

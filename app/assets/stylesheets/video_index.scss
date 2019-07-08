@@ -46,9 +46,7 @@
     // overflow-y: hidden;
 }
 
-.main-index-recommended-list > * {
-    flex-grow: 1;
-}
+
 
 .video-list-item {
     padding-right: 4px;
@@ -59,10 +57,10 @@
 
 .video-list-item img {
     width: 100%;
-    // max-width: 232px;
+    max-width: 232px;
     min-width: 210px;
     height: 100%;
-    // max-height: 130px;
+    max-height: 130px;
     min-height: 118px;
 }
 

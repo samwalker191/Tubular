@@ -1,7 +1,8 @@
+require 'open-uri'
+
 ActiveRecord::Base.transaction do
     User.destroy_all
     Video.destroy_all
-    require 'open-uri'
 
     u1 = User.create!(
         username: 'DemoUser',
@@ -27,10 +28,11 @@ ActiveRecord::Base.transaction do
         owner_id: 3,
         views: 100
     )
-    vid1_thumbnail = open('https://s3.amazonaws.com/walker-tubular-seed/headshot_thumbnail.png')
-    vid1.attach.thumbnail(io: file, filename: 'headshot_thumbnail.png')
-    vid1_video = open('https://s3.amazonaws.com/walker-tubular-seed/headshot.mp4')
-    vid1.attach.video(io: file, filename: 'headshot.mp4')
+
+    file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/headshot_thumbnail.png')
+    vid1.thumbnail.attach(io: file, filename: 'headshot_thumbnail.png')
+    file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/headshot.mp4')
+    vid1.video.attach(io: file, filename: 'headshot.mp4')
 
     vid2 = Video.create!(
         title: 'TESTER VIDEO',
@@ -38,8 +40,8 @@ ActiveRecord::Base.transaction do
         owner_id: 1,
         views: 5
     )
-    vid2_thumbnail = open('https://s3.amazonaws.com/walker-tubular-seed/test_thumbnail.jpg')
-    vid2.attach.thumbnail(io: file, filename: 'test_thumbnail.jpg')
-    vid2_video = open('https://s3.amazonaws.com/walker-tubular-seed/test_vid.mp4')
-    vid2.attach.video(io: file, filename: 'test_vid.mp4')
+    file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/test_thumbnail.jpg')
+    vid2.thumbnail.attach(io: file, filename: 'test_thumbnail.jpg')
+    file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/test_vid.mp4')
+    vid2.video.attach(io: file, filename: 'test_vid.mp4')
 end

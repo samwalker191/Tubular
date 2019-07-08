@@ -33,9 +33,6 @@ class VideoIndex extends React.Component {
                         {videoItems}
                         {videoItems}
                         {videoItems}
-                        {videoItems}
-                        {videoItems}
-                        {videoItems}
                     </ul>
                 </div>
             </div>
