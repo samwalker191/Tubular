@@ -19,6 +19,15 @@ class User < ApplicationRecord
         foreign_key: :owner_id,
         class_name: :Video
 
+    has_many :likes,
+        foreign_key: :user_id,
+        class_name: :Like
+
+    has_many :liked_videos,
+        through: :likes,
+        source: :likeable,
+        source_type: 'Video'
+
     attr_reader :password
 
     after_initialize :ensure_session_token
