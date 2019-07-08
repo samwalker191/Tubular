@@ -9,6 +9,8 @@ class VideoShow extends React.Component {
         super(props);
 
         this.state = this.props.shownVideo;
+        this.handleVideoLike = this.handleVideoLike.bind(this);
+        this.handleVideoDislike = this.handleVideoDislike.bind(this);
     }
 
     componentDidMount() {
@@ -28,6 +30,50 @@ class VideoShow extends React.Component {
         }
     }
 
+    handleVideoLike() {
+        if (this.props.currUserLike.liked !== undefined) {
+            if (this.props.currUserLike.liked === false) {
+                this.props.changeLike({
+                    id: this.props.currUserLike.id,
+                    liked: true,
+                    likeable_id: this.props.currUserLike.likeable_id,
+                    likeable_type: this.props.currUserLike.likeable_type
+                }).then(() => this.props.fetchVideo(this.props.match.params.videoId))
+            } else {
+                this.props.removeLike(this.props.currUserLike.id)
+                    .then(() => this.props.fetchVideo(this.props.match.params.videoId))
+            }
+        } else {
+            this.props.addLike({
+               liked: true,
+               likeable_id: this.props.shownVideo.id,
+               likeable_type: 'Video'
+            }).then(() => this.props.fetchVideo(this.props.match.params.videoId))
+        }
+    }
+
+    handleVideoDislike() {
+        if (this.props.currUserLike.liked !== undefined) {
+            if (this.props.currUserLike.liked === true) {
+                this.props.changeLike({
+                    id: this.props.currUserLike.id,
+                    liked: false,
+                    likeable_id: this.props.currUserLike.likeable_id,
+                    likeable_type: this.props.currUserLike.likeable_type
+                }).then(() => this.props.fetchVideo(this.props.match.params.videoId))
+            } else {
+                this.props.removeLike(this.props.currUserLike.id)
+                    .then(() => this.props.fetchVideo(this.props.match.params.videoId))
+            }
+        } else {
+            this.props.addLike({
+                liked: false,
+                likeable_id: this.props.shownVideo.id,
+                likeable_type: 'Video'
+            }).then(() => this.props.fetchVideo(this.props.match.params.videoId))
+        }
+    }
+
     render() {
         if (this.props.shownVideo === undefined) {
             return null
@@ -44,6 +90,18 @@ class VideoShow extends React.Component {
             }
         }
 
+        let likedActive;
+        let dislikedActive;
+        if (this.props.currUserLike.liked !== undefined) {
+            if (this.props.currUserLike.liked === true) {
+                likedActive = 'active';
+                dislikedActive = null;
+            } else {
+                likedActive = null;
+                dislikedActive = 'active';
+            }
+        }
+        
         return (
             <div>
                 <div className='video-show-page'>
@@ -64,8 +122,20 @@ class VideoShow extends React.Component {
                                     <div className='video-stats'>
                                         <span>0 Views</span>
                                         <ul>
-                                            <li><FontAwesomeIcon icon={faThumbsUp}/>500</li>
-                                            <li><FontAwesomeIcon icon={faThumbsDown}/>499</li>
+                                            <li className={likedActive}>
+                                                <button onClick={this.handleVideoLike} className={likedActive}>
+                                                    <FontAwesomeIcon icon={faThumbsUp}/>
+                                                    {this.props.shownVideo.likes}
+                                                </button>
+                                                
+                                            </li>
+                                            <li className={dislikedActive}>
+                                                <button onClick={this.handleVideoDislike} className={dislikedActive}>
+                                                    <FontAwesomeIcon icon={faThumbsDown}/>
+                                                    {this.props.shownVideo.dislikes}    
+                                                </button>
+                                                
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>

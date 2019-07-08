@@ -52,13 +52,30 @@
 
 .video-stats ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     width: 130px;
+}
+
+.video-stats ul > li {
+    margin-right: 20px;
 }
 
 .video-stats ul svg {
     font-size: 18px;
     padding-right: 8px;
+    color: #606060
+}
+
+.video-stats ul button:hover {
+    cursor: pointer;
+}
+
+.video-stats .active svg {
+    color: rgb(0, 98, 207)
+}
+
+.active {
+    color: rgb(0, 98, 207)
 }
 
 .video-show-details-top {
