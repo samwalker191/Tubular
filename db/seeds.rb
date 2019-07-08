@@ -1,6 +1,7 @@
 require 'open-uri'
 
 ActiveRecord::Base.transaction do
+
     User.destroy_all
     Video.destroy_all
 
@@ -25,7 +26,7 @@ ActiveRecord::Base.transaction do
     vid1 = Video.create!(
         title: 'Boom, Headshot | PUBG w/ Friends',
         description: 'Short highlight',
-        owner_id: 3,
+        owner_id: u3.id,
         views: 100
     )
 
@@ -37,7 +38,7 @@ ActiveRecord::Base.transaction do
     vid2 = Video.create!(
         title: 'TESTER VIDEO',
         description: 'Demo user should be able to edit and delete this video',
-        owner_id: 1,
+        owner_id: u1.id,
         views: 5
     )
     file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/test_thumbnail.jpg')
