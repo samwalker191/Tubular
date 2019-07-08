@@ -13,11 +13,6 @@ class Api::LikesController < ApplicationController
     end
 
     def update
-        # @like = Like.find_by(
-        #     user_id: current_user.id,
-        #     likeable_id: params[:like][:likeable_id],
-        #     likeable_type: params[:like][:likeable_type]
-        # )
         @like = Like.find(params[:id])
         if current_user.id == @like.user_id
             if @like.update_attributes(update_like_params)
@@ -31,11 +26,6 @@ class Api::LikesController < ApplicationController
     end
 
     def destroy
-        # like = Like.find_by(
-        #     user_id: current_user.id,
-        #     likeable_id: params[:like][:likeable_id],
-        #     likeable_type: params[:like][:likeable_type]
-        # )
         @like = Like.find(params[:id])
         if current_user.id == @like.user_id
             @like.destroy
