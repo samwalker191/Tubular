@@ -64,3 +64,22 @@
 .comment-dislikes button span {
     font-size: 13px;
 }
+
+.video-show-comments-form-container {
+    display: flex;
+}
+
+.video-show-comments-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.signed-in {
+    width: 100%;
+}
+
+.comment-form-buttons {
+    align-self: flex-end;
+
+}

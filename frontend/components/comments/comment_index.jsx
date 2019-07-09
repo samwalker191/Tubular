@@ -20,7 +20,7 @@ class CommentIndex extends React.Component {
     render() {
         let currentUserIcon;
         let commentFormInput;
-        if (currentUser) {
+        if (this.props.currentUser) {
             currentUserIcon = <i className='current-user-icon'>
                                   {this.props.currentUser.username.slice(0, 1).toUpperCase()}
                               </i>;
@@ -46,15 +46,25 @@ class CommentIndex extends React.Component {
 
         return(
             <div className='video-show-comments-container'>
+                <h3>{this.props.comments.length} Comments</h3>
                 <div className='video-show-comments-form-container'>
                     <div className='comment-form-icon-container'>
                         {currentUserIcon}
                     </div>
 
-                    <form className='video-show-comments-form'>
-                        {commentFormInput}
-                        
-                    </form>
+                    <div className='video-show-comments-form'>
+                        <form>
+                            {commentFormInput}
+                        </form>
+                        <div className='comment-form-buttons'>
+                            <button className='comment-cancel-btn' onClick={this.handleCancel}>
+                                CANCEL
+                            </button>
+                            <button className='comment-submit-btn' onClick={this.handleSubmit}>
+                                COMMENT
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
                 <ul className='video-show-comments'>
