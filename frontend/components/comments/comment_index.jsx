@@ -109,7 +109,16 @@ class CommentIndex extends React.Component {
                 </div>
 
                 <ul className='video-show-comments'>
-                    {this.props.comments.map((comment, idx) => <CommentIndexItem comment={comment} key={`comment-${idx}`}/>)}
+                    {this.props.comments.map((comment, idx) => (
+                            <CommentIndexItem 
+                                comment={comment}
+                                deleteComment={this.props.deleteComment}
+                                currentUser={this.props.currentUser} 
+                                key={`comment-${idx}`}
+                            />
+                        ))
+                    }
+                    
                 </ul>
             </div>
         )
