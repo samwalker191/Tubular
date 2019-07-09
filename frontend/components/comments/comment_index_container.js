@@ -4,9 +4,11 @@ import CommentIndex from './comment_index';
 
 const mapSTP = (state, ownProps) => {
     let comments = state.entities.comments === {} ? [] : Object.values(state.entities.comments);
+    let currentUser = state.session.id ? state.entities.users[state.session.id] : null;
     return ({
         comments: comments,
         shownVideo: ownProps.shownVideo,
+        currentUser: currentUser
     });
 };
 

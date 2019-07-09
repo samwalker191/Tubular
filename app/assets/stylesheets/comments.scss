@@ -1,0 +1,66 @@
+.comment-container-item {
+    display: flex;
+}
+
+.comment-likes-container {
+    display: flex;
+}
+
+.comment-username {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 7px;
+}
+
+.comment-body {
+    margin-bottom: 12px;
+}
+
+.comment-user-icon {
+    margin-right: 16px;
+    background: #DB4437;
+    padding: 9px 14px;
+    border-radius: 100%;
+    line-height: 22px;
+    font-weight: 500;
+    color: white;
+    font-size: 20px;
+}
+
+.comment-details-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-user-icon-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.comment-likes button {
+    padding-right: 8px;
+    color: #606060
+}
+
+.comment-likes button svg {
+    font-size: 15px;
+    padding-right: 8px;
+}
+
+.comment-likes button span {
+    font-size: 13px;
+}
+
+.comment-dislikes button {
+    padding-right: 8px;
+    color: #606060
+}
+
+.comment-dislikes button svg {
+    font-size: 15px;
+    padding-right: 8px;
+}
+
+.comment-dislikes button span {
+    font-size: 13px;
+}
