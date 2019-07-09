@@ -9,7 +9,11 @@ const CommentsReducer = (oldState = {}, action) => {
         case RECEIVE_COMMENT:
             return merge({}, oldState, { [action.comment.id]: action.comment });
         case RECEIVE_VIDEO:
-            return action.payload.comments; 
+            if (action.payload.comments) {
+                return action.payload.comments; 
+            } else {
+                return {};
+            }
         case REMOVE_COMMENT:
             let newState = merge({}, oldState);
             delete newState[action.commentId];
