@@ -160,19 +160,3 @@ class VideoForm extends React.Component {
 }
 
 export default withRouter(VideoForm);
-
-// $.ajax({
-//     method: 'PATCH',
-//     url: `/api/videos/${this.props.video.id}`,
-//     data: formData,
-//     contentType: false,
-//     processData: false
-// })
-
-// $.ajax({
-//     method: 'POST',
-//     url: '/api/videos',
-//     data: formData,
-//     contentType: false,
-//     processData: false
-// })

@@ -12,6 +12,7 @@ class Header extends React.Component {
 
         this.handleLogout = this.handleLogout.bind(this);
         this.handleInput = this.handleInput.bind(this);
+        this.handleSearch = this.handleSearch.bind(this);
     }
 
     handleLogout() {
@@ -19,6 +20,7 @@ class Header extends React.Component {
     }
 
     handleSearch() {
+        
         this.props.history.push(`/search/${this.state.search}`);
     }
 

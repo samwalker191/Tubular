@@ -6,7 +6,7 @@ const VideosReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     switch (action.type) {
         case RECEIVE_VIDEOS:
-            return merge({}, oldState, action.videos);
+            return action.videos;
         case RECEIVE_VIDEO:
             return merge({}, oldState, { [action.payload.video.id]: action.payload.video })
         case REMOVE_VIDEO:

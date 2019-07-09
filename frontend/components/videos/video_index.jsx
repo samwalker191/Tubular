@@ -11,7 +11,7 @@ class VideoIndex extends React.Component {
     render() {
         let videoItems = this.props.videos.map(
             (video, idx) => <VideoIndexItem video={video} key={`video-index-${idx}`}/>
-        )
+        );
 
         return (
             <div className='main-index'>
