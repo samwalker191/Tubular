@@ -62,7 +62,7 @@ class CommentIndexItem extends React.Component{
                     <div className='comment-details-container'>
                         <span className='comment-username'>{this.props.comment.commenter}</span>
                         <span className='comment-body'>{this.props.comment.body}</span>
-                        <ul className='comment-likes-container'>
+                        {/* <ul className='comment-likes-container'>
                             <li className='comment-likes'>
                                 <button>
                                     <FontAwesomeIcon icon={faThumbsUp}/>
@@ -76,7 +76,7 @@ class CommentIndexItem extends React.Component{
                                     <span>{this.props.comment.dislikes}</span>
                                 </button>
                             </li>
-                        </ul>
+                        </ul> */}
                     </div>
                 </div>
                 <div className='comment-delete-button-container'>
