@@ -5,11 +5,17 @@ import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 class CommentIndexItem extends React.Component{
 
     render() {
+        let commenterIcon;
+        if (this.props.comment.commenter) {
+            commenterIcon = this.props.comment.commenter.slice(0,1).toUpperCase();
+        } else {
+            commenterIcon = null;
+        }
 
         return(
             <li className='comment-container-item'>
                 <div className='comment-user-icon-container'>
-                    <i className='comment-user-icon'>{this.props.comment.commenter.slice(0,1).toUpperCase()}</i>
+                    <i className='comment-user-icon'>{commenterIcon}</i>
                 </div>
                 <div className='comment-details-container'>
                     <span className='comment-username'>{this.props.comment.commenter}</span>

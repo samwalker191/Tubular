@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import { createComment, deleteComment } from '../../actions/comments_actions';
 import CommentIndex from './comment_index';
+import { fetchVideo } from '../../actions/videos_actions';
+
 
 const mapSTP = (state, ownProps) => {
     let comments = state.entities.comments === {} ? [] : Object.values(state.entities.comments);
@@ -16,7 +18,8 @@ const mapDTP = dispatch => {
 
     return ({
         createComment: comment => dispatch(createComment(comment)),
-        deleteComment: commentId => dispatch(deleteComment(commentId))
+        deleteComment: commentId => dispatch(deleteComment(commentId)),
+        fetchVideo: videoId => dispatch(fetchVideo(videoId)),        
     });
 };
 

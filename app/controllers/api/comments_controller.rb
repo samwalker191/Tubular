@@ -19,6 +19,7 @@ class Api::CommentsController < ApplicationController
             render :show
         else
             render json: ['Must be owner of comment to destroy'], status: 422
+        end
     end
 
     private

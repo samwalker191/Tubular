@@ -2,19 +2,41 @@ import React from 'react';
 import CommentIndexItem from './comment_index_item';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { faUserCircle, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle, faUser, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
 
 class CommentIndex extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { body: '' };
+        this.state = { body: '', buttonHide: true, submitActive: false };
         this.handleInput = this.handleInput.bind(this);
+        this.toggleBtns = this.toggleBtns.bind(this);
+        this.handleCancel = this.handleCancel.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleInput(e) {
-        this.setState({ body: e.currentTarget.value });
+        this.setState({ body: e.currentTarget.value, submitActive: true });
+    }
+
+    toggleBtns() {
+        if (this.state.buttonHide) {
+            this.setState({ buttonHide: !this.state.buttonHide });
+        }
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.createComment({
+            body: this.state.body,
+            video_id: this.props.shownVideo.id
+        }).then(() => this.props.fetchVideo(this.props.shownVideo.id));
+        this.setState({ body: '', buttonHide: true })
+    }
+
+    handleCancel() {
+        this.setState({ body: '', buttonHide: true });
     }
 
     render() {
@@ -29,6 +51,8 @@ class CommentIndex extends React.Component {
                                   value={this.state.body}
                                   placeholder='Add a public comment...'
                                   onChange={this.handleInput}
+                                  onFocus={this.toggleBtns}
+                                  onBlur={this.toggleBtns}
                                   className='signed-in'
                                 />
         } else {
@@ -38,11 +62,26 @@ class CommentIndex extends React.Component {
                                   value={this.state.body}
                                   placeholder='Please signin to post a public comment'
                                   onChange={this.handleInput}
+                                  onFocus={this.toggleBtns}
+                                  onBlur={this.toggleBtns}
                                   className='signed-out'
                                   disabled
                                 />
         }
+        
+        let buttonClass;
+        if (this.state.buttonHide) {
+            buttonClass = 'hidden';
+        } else {
+            buttonClass = '';
+        }
 
+        let active;
+        if (this.state.submitActive && this.state.body !== '') {
+            active = 'comment-submit-btn-active';
+        } else {
+            active = 'comment-submit-btn';
+        }
 
         return(
             <div className='video-show-comments-container'>
@@ -52,17 +91,19 @@ class CommentIndex extends React.Component {
                         {currentUserIcon}
                     </div>
 
-                    <div className='video-show-comments-form'>
-                        <form>
-                            {commentFormInput}
-                        </form>
-                        <div className='comment-form-buttons'>
-                            <button className='comment-cancel-btn' onClick={this.handleCancel}>
-                                CANCEL
-                            </button>
-                            <button className='comment-submit-btn' onClick={this.handleSubmit}>
-                                COMMENT
-                            </button>
+                    <div className='comments-form-styling-container'>
+                        <div className='video-show-comments-form'>
+                            <form>
+                                {commentFormInput}
+                            </form>
+                            <div className={`comment-form-buttons ${buttonClass}`}>
+                                <button className='comment-cancel-btn' onClick={this.handleCancel}>
+                                    CANCEL
+                                </button>
+                                <button className={active} onClick={this.handleSubmit}>
+                                    COMMENT
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
