@@ -2,17 +2,28 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { faBars, faArrowCircleUp, faUserCircle, faVideo } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faArrowCircleUp, faUserCircle, faVideo, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 class Header extends React.Component {
     constructor(props) {
         super(props);
 
+        this.state = { search: ''}
+
         this.handleLogout = this.handleLogout.bind(this);
+        this.handleInput = this.handleInput.bind(this);
     }
 
     handleLogout() {
         this.props.logout();
+    }
+
+    handleSearch() {
+        this.props.history.push(`/search/${this.state.search}`);
+    }
+
+    handleInput(e) {
+        this.setState({ search: e.currentTarget.value });
     }
 
     render() {
@@ -49,7 +60,18 @@ class Header extends React.Component {
                 </div>
 
                 <div className='header-search'>
-                    
+                    <form className='search-bar' onSubmit={this.handleSearch}> 
+                        <input 
+                            type='text'
+                            value={this.state.search}
+                            onChange={this.handleInput}
+                            placeholder='Search'
+                        />
+                        <input type='submit' className='hidden' />
+                    </form>
+                    <button className='search-button' onClick={this.handleSearch}>
+                        <FontAwesomeIcon icon={faSearch} />
+                    </button>
                 </div>
 
                 <div className='header-right'>
