@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import VideoShowIndexItem from './video_show_index_item';
 import { Link } from 'react-router-dom';
+import CommentIndexContainer from '../comments/comment_index_container';
 
 class VideoShow extends React.Component {
     constructor(props) {
@@ -147,7 +148,7 @@ class VideoShow extends React.Component {
                                     <div className='video-description'>{this.props.shownVideo.description}</div>
                                 </div>
                             </div>
-                        
+                        <CommentIndexContainer shownVideo={this.props.shownVideo} />                        
                     </div>
 
                     <div className='video-show-index-container'>
