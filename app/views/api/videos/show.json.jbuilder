@@ -6,6 +6,7 @@ json.comments do
     @video.comments.each do |comment|
         json.set! comment.id do
             json.extract! comment, :id, :body, :user_id, :video_id
+            json.commenter comment.user.username
         end
     end
 end

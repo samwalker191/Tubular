@@ -4,7 +4,6 @@ import CommentIndex from './comment_index';
 
 const mapSTP = (state, ownProps) => {
     let comments = state.entities.comments === {} ? [] : Object.values(state.entities.comments);
-    debugger
     return ({
         comments: comments,
         shownVideo: ownProps.shownVideo,
