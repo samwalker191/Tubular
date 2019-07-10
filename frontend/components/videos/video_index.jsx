@@ -15,16 +15,7 @@ class VideoIndex extends React.Component {
 
         return (
             <div className='main-index'>
-                {/* <div className='main-index-trending'>
-                    <ul className="main-index-recommended-list">
-                        {videoItems}
-                        {videoItems}
-                        {videoItems}
-                        {videoItems}
-                        {videoItems}
-                        {videoItems}
-                    </ul>
-                </div> */}
+                <div className='main-index-spacer'></div>
                 <h3>Recommended</h3>
                 <div className='main-index-recommended'>
                     

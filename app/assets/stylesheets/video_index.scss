@@ -1,84 +1,66 @@
 .main-index {
     height: 100vh;
     display: flex;
-    grid-template-rows: 56px 17px 1fr;
-    grid-gap: 23px;
-    // justify-content: center;
+    flex-direction: column;
     font-family: 'Roboto', Arial, sans-serif;
 }
 
-.main-index-recommended {
-    grid-row-start: 3;
-    grid-row-end: 3;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: space-around;
-    // align-items: center;
-    // flex-wrap: wrap;
-    // width: 73%;
-    // padding-bottom: 24px;
-    // height: 100%;
-    // margin-top: 60px;
-    // overflow: hidden;
+.main-index-spacer {
+    height: 56px;
 }
 
 .main-index > h3 {
-    // align-self: start;
-    grid-row-start: 2;
-    grid-row-end: 2;
-    align-self: center;
-    padding-left: 90px;
-    // margin: 24px 0;
+    margin: 30px 0;
     font-weight: 500;
     font-size: 17px;
 }
 
+// .main-index > h3 {
+//     align-self: start;
+//     // padding-left: 90px;
+//     // margin: 24px 0;
+//     
+// }
+
 .main-index-recommended-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-row-gap: 24px;
-    margin: 0 90px;
+    display: flex;
+    // grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    // grid-row-gap: 24px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    // margin: 0 90px;
     border-bottom: 2px solid rgb(225, 225, 225);
     padding-bottom: 10px;
     // width: 100%;
     // flex-wrap: nowrap;
-    // overflow-x: scroll;
-    // overflow-y: hidden;
 }
-
-
 
 .video-list-item {
     padding-right: 4px;
-    // height: 202px;
-    // width: 16.6666%;
-    min-width: 210px;
+    max-width: 210px;
 }
 
 .video-list-item img {
-    width: 100%;
-    max-width: 232px;
-    min-width: 210px;
-    height: 100%;
-    max-height: 130px;
-    min-height: 118px;
+    width: 210px;
+    height: 118px;
 }
 
 .video-details {
     height: 82px;
-    padding-right: 24px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 
-.video-details h3 {
+.video-details-title {
     font-weight: 500;
     font-size: 14px;
+    margin-top: 10px;
 }
 
-.video-details p {
+.video-details-owner {
     font-size: 13px;
     color: #606060;
+    margin-top: 10px;
 }
 
