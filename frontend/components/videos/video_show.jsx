@@ -4,6 +4,7 @@ import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import VideoShowIndexItem from './video_show_index_item';
 import { Link } from 'react-router-dom';
 import CommentIndexContainer from '../comments/comment_index_container';
+import ModalSidebarContainer from '../sidebar/modal_sidebar_container';
 
 class VideoShow extends React.Component {
     constructor(props) {
@@ -114,6 +115,16 @@ class VideoShow extends React.Component {
                 dislikedActive = 'active';
             }
         }
+
+        let modal;
+        let hidden;
+        if (this.props.sidebarSmall) {
+            modal = 'hidden';
+            hidden = 'hidden';
+        } else {
+            modal = 'modal';
+            hidden = '';
+        }
         
         return (
             <div>
@@ -170,6 +181,12 @@ class VideoShow extends React.Component {
                             {videoItems}
                             {videoItems}
                         </ul>
+                    </div>
+                </div>
+                <div className={hidden}>
+                    <div className={modal}></div>
+                    <div>
+                        <ModalSidebarContainer />
                     </div>
                 </div>
             </div>

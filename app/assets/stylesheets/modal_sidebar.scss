@@ -1,0 +1,48 @@
+.modal-sidebar-container {
+    top: 0;
+    width: 200px;
+    transition: 1s;
+    background: rgb(245, 245, 245);
+    position: fixed;
+    z-index: 1001;
+    height: 100vw;
+}
+
+.modal-sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 17px 26px 17px 24px;
+    box-shadow: 0 1px 10px hsl(0, 0%, 90%);
+    background: rgb(255, 255, 255);
+}
+
+.modal-sidebar-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-sidebar-home {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    padding: 20px 41px 20px 20px;
+}
+
+.modal-sidebar-home:hover {
+    cursor: pointer;
+    background: rgb(220, 220, 220,);
+}
+
+
+.modal-sidebar-home svg {
+    margin-right: 30px;
+    margin-left: 3px;
+    font-size: 18px;
+    color: #606060;
+}
+
+.row span {
+    font-size: 18px;
+    color: #0D0D0D;    
+}

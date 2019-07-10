@@ -12,7 +12,8 @@ const mapSTP = (state, ownProps) => {
         videos: Object.values(state.entities.videos),
         shownVideo: state.entities.videos[ownProps.match.params.videoId],
         currentUser: currentUser,
-        currUserLike: currUserLike
+        currUserLike: currUserLike,
+        sidebarSmall: state.ui.sidebarSmall,
     });
 };
 
