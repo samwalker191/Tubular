@@ -1,6 +1,6 @@
 .main-index {
     height: 100vh;
-    width: 87%;
+    width: 86%;
     display: flex;
     flex-direction: column;
     font-family: 'Roboto', Arial, sans-serif;
@@ -11,16 +11,16 @@
 }
 
 .main-index-recommended {
-    margin: 0 auto;
+    margin-left: 30px;
     // width: 80%;
 }
 
 .main-index-recommended.small-index {
-    width: 94%;
+    width: 95%;
 }
 
 .main-index-recommended.large-index {
-    width: 76%;
+    width: 95%;
 }
 
 .main-index-recommended > h3 {
@@ -44,7 +44,7 @@
 }
 
 .video-list-item img {
-    width: 210px;
+    width: 209px;
     height: 118px;
 }
 
