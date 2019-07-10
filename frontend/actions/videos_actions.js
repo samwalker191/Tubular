@@ -62,6 +62,11 @@ export const updateVideo = (video, formData) => dispatch => (
         )
 );
 
+export const updateVideoSimple = video => dispatch => (
+    VideosAPIUtil.updateVideoSimple(video)
+        .then(payload => dispatch(receiveVideo(payload)))
+);
+
 export const deleteVideo = videoId => dispatch => (
     VideosAPIUtil.deleteVideo(videoId)
         .then(

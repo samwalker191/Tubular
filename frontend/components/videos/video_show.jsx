@@ -12,6 +12,7 @@ class VideoShow extends React.Component {
         this.state = this.props.shownVideo;
         this.handleVideoLike = this.handleVideoLike.bind(this);
         this.handleVideoDislike = this.handleVideoDislike.bind(this);
+        this.handleVideoPlay = this.handleVideoPlay.bind(this);
     }
 
     componentDidMount() {
@@ -79,6 +80,14 @@ class VideoShow extends React.Component {
         }
     }
 
+    handleVideoPlay() {
+        debugger
+        this.props.updateVideoSimple({ 
+            views: this.props.shownVideo.views + 1,
+            id: this.props.shownVideo.id
+        });
+    }
+
     render() {
         if (this.props.shownVideo === undefined) {
             return null
@@ -113,7 +122,7 @@ class VideoShow extends React.Component {
                     <div className='video-show-container'>
                         
                             <div className='video-container'>
-                                <video width="100%" controls>
+                                <video width="100%" controls onPlay={this.handleVideoPlay}>
                                     <source src={this.props.shownVideo.videoURL} type="video/mp4"></source>
                                 </video>
                             </div>
@@ -125,7 +134,7 @@ class VideoShow extends React.Component {
                                     </div>
 
                                     <div className='video-stats'>
-                                        <span>0 Views</span>
+                                        <span>{this.props.shownVideo.views} Views</span>
                                         <ul>
                                             <li className={likedActive}>
                                                 <button onClick={this.handleVideoLike} className={likedActive}>

@@ -32,8 +32,16 @@ class Api::VideosController < ApplicationController
         render :show
     end
 
-    def update
-        
+    def view_update
+        @video = Video.find(params[:id])
+        if @video.update_attributes(video_params_edit_views)
+            render :show
+        else
+            render json: @video.errors.full_messages, status: 422
+        end
+    end
+
+    def update 
         @video = Video.find(params[:id])
         if params[:video][:thumbnail] == 'null'
             params[:video].delete('thumbnail')
@@ -65,6 +73,10 @@ class Api::VideosController < ApplicationController
     end
     
     def video_params_edit
-        params.require(:video).permit(:title, :description, :owner_id, :thumbnail)
+        params.require(:video).permit(:title, :description, :owner_id, :thumbnail, :views)
+    end
+
+    def video_params_edit_views
+        params.require(:video).permit(:views)
     end
 end

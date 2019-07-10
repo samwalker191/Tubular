@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :videos, except: [:new, :edit]
     resources :likes, only: [:create, :update, :destroy]
     resources :comments, only: [:create, :destroy]
+    patch '/videos/:id/views', to: 'videos#view_update'
   end
 
   root to: 'static_pages#root'

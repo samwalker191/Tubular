@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchVideo, fetchVideos } from '../../actions/videos_actions';
+import { fetchVideo, fetchVideos, updateVideoSimple } from '../../actions/videos_actions';
 import { addLike, changeLike, removeLike } from '../../actions/likes_actions';
 import { toggleShowPage } from '../../actions/ui_actions';
 import VideoShow from './video_show';
@@ -23,7 +23,8 @@ const mapDTP = dispatch => {
         addLike: like => dispatch(addLike(like)),
         changeLike: like => dispatch(changeLike(like)),
         removeLike: likeId => dispatch(removeLike(likeId)),
-        toggleShowPage: () => dispatch(toggleShowPage())
+        toggleShowPage: () => dispatch(toggleShowPage()),
+        updateVideoSimple: video => dispatch(updateVideoSimple(video))
     });
 };
 
