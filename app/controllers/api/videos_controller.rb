@@ -3,8 +3,8 @@ class Api::VideosController < ApplicationController
 
     def index(query = '')
         query = params['query'] || ''
-        formatted_query = '%' + query + '%'
-        @videos = Video.where('videos.title like ?', formatted_query)
+        formatted_query = '%' + query.downcase + '%'
+        @videos = Video.where('lower(videos.title) like ?', formatted_query)
         render :index
     end
 

@@ -35,7 +35,7 @@ class SessionForm extends React.Component {
         });
         setTimeout(() => {
             this.props.action(this.state)
-                .then(() => this.props.history.push('/'))
+                .then(() => this.props.history.goBack());
         }, 0)
     }
 

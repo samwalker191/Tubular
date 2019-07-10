@@ -156,8 +156,6 @@ class VideoShow extends React.Component {
                             {videoItems}
                             {videoItems}
                             {videoItems}
-                            {videoItems}
-                            {videoItems}
                         </ul>
                     </div>
                 </div>

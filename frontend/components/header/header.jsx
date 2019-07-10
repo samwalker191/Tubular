@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { faBars, faArrowCircleUp, faUserCircle, faVideo, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faUserCircle, faVideo, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 class Header extends React.Component {
     constructor(props) {
@@ -20,8 +20,8 @@ class Header extends React.Component {
     }
 
     handleSearch() {
-        
         this.props.history.push(`/search/${this.state.search}`);
+        this.setState({ search: ''});
     }
 
     handleInput(e) {

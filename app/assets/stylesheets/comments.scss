@@ -93,6 +93,17 @@
     border-bottom: 2px solid #606060;
 }
 
+.signed-out {
+    width: 100%;
+    border-bottom: 1px solid rgb(229, 229, 229);
+    padding: 5px;
+    font-size: 15px;
+}
+
+.signed-out:focus {
+    border-bottom: 2px solid #606060;
+}
+
 .comment-form-buttons {
     align-self: flex-end;
 }
@@ -168,12 +179,10 @@
 .comment-delete-button {
     background: #1A73E8;
     color: #fff;
-    width: 80px;
-    height: 35px;
     border-radius: 4px;
     font-size: 14px;
     font-family: 'Roboto', Arial, sans-serif;
-    padding: 5px 8px;
+    padding: 8px 12px;
     text-align: center;
 }
 
@@ -181,4 +190,10 @@
     cursor: pointer;
     background: rgb(0, 125, 225);
     box-shadow: 0.5px 1px 2px rgb(0, 125, 225);
+}
+
+.comment-user-circle {
+    font-size: 42px;
+    margin-right: 12px;
+    color: #1A73E8;
 }

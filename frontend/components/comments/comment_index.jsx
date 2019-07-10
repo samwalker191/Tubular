@@ -60,7 +60,7 @@ class CommentIndex extends React.Component {
             commentFormInput = <input
                                   type='text'
                                   value={this.state.body}
-                                  placeholder='Please signin to post a public comment'
+                                  placeholder='Please sign in to post a public comment'
                                   onChange={this.handleInput}
                                   onFocus={this.toggleBtns}
                                   onBlur={this.toggleBtns}
