@@ -81,7 +81,6 @@ class VideoShow extends React.Component {
     }
 
     handleVideoPlay() {
-        debugger
         this.props.updateVideoSimple({ 
             views: this.props.shownVideo.views + 1,
             id: this.props.shownVideo.id

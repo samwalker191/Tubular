@@ -12,7 +12,7 @@ class VideoShowIndexItem extends React.Component {
                     <div className='video-show-index-details'>
                         <h3>{this.props.video.title}</h3>
                         <p>{this.props.video.owner}</p>
-                        <p>504 views</p>
+                        <p>{this.props.video.views} Views</p>
                     </div>
                 </Link>
             </li>
