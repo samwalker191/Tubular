@@ -5,20 +5,27 @@ import { Link } from 'react-router-dom';
 
 class Sidebar extends React.Component {
 
-
     render() {
         let size;
-        if (this.props.sidebarSmall) {
+        let content;
+
+        if (this.props.showPage && this.props.sidebarSmall) {
+            return null;
+        } else if (this.props.showPage && !this.props.sidebarSmall) {
+            return null;
+        } else if (!this.props.showPage && this.props.sidebarSmall) {
             size = 'small-sidebar';
-        } else {
+            content = 'column';
+        } else if (!this.props.showPage && !this.props.sidebarSmall) {
             size = 'large-sidebar';
+            content = 'row';
         }
 
         return (
-            <div className={`sidebar-container ${size}`}>
+            <div className={`${size}`}>
                 <div className='sidebar-spacer'></div>
                 <div className='sidebar-main'>
-                    <Link to='/' className='sidebar-home'>
+                    <Link to='/' className={`sidebar-home ${content}`}>
                         <FontAwesomeIcon icon={faHome}/>
                         <span>Home</span>
                     </Link>

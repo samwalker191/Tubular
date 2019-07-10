@@ -12,12 +12,18 @@ class VideoIndex extends React.Component {
         let videoItems = this.props.videos.map(
             (video, idx) => <VideoIndexItem video={video} key={`video-index-${idx}`}/>
         );
+        let size;
+        if (this.props.sidebarSmall) {
+            size = 'small-index';
+        } else {
+            size = 'large-index';
+        }
 
         return (
             <div className='main-index'>
-                <div className='main-index-spacer'></div>
-                <h3>Recommended</h3>
-                <div className='main-index-recommended'>
+                <div className={`main-index-recommended ${size}`}>
+                    <div className='main-index-spacer'></div>
+                    <h3>Recommended</h3>
                     
                     <ul className="main-index-recommended-list">
                         {videoItems}

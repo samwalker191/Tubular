@@ -1,22 +1,22 @@
 .main-app-container {
     display: flex;
+    width: 100vw;
 }
 
-.sidebar-container {
+.small-sidebar {
+    width: 64px;
     height: 100vw;
     display: flex;
     flex-direction: column;
     background: rgb(245, 245, 245);
     z-index: 998;
-    margin-right: 80px;
-}
-
-.small-sidebar {
-    width: 100px;
 }
 
 .large-sidebar {
-    width: 300px;
+    width: 175px;
+    background: rgb(245, 245, 245);
+    z-index: 998;
+    height: 100vw;
 }
 
 .sidebar-spacer {
@@ -26,15 +26,47 @@
 .sidebar-main {
     display: flex;
     flex-direction: column;
+    // position: fixed;
 }
 
 .sidebar-home {
+    color: #606060;
+    
+}
+
+.column {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px 0;
-    color: #606060;
+    padding: 20px 15px;
+    position: fixed;
+}
+
+.column svg {
+    padding-left: 3px;
+}
+
+.column span {
+    font-size: 12px;
+    padding-top: 5px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    padding: 20px 41px 20px 20px;
+}
+
+.row svg {
+    margin-right: 30px;
+    margin-left: 4px;
+    // padding-left: 3px;
+}
+
+.row span {
+    font-size: 18px;
 }
 
 .sidebar-home:hover {
@@ -43,11 +75,7 @@
 }
 
 .sidebar-home svg {
-    font-size: 18px;
+    font-size: 17px;
 }
 
-.sidebar-home span {
-    font-size: 12px;
-    padding-top: 5px;
-}
 

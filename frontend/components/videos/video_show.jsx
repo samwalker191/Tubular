@@ -17,6 +17,11 @@ class VideoShow extends React.Component {
     componentDidMount() {
         this.props.fetchVideos('');
         this.props.fetchVideo(this.props.match.params.videoId);
+        this.props.toggleShowPage();
+    }
+
+    componentWillUnmount() {
+        this.props.toggleShowPage();
     }
 
     componentDidUpdate(prevProps) {

@@ -1,15 +1,21 @@
 import merge from 'lodash/merge';
-import { TOGGLE_SIDEBAR } from '../actions/ui_actions';
+import { TOGGLE_SIDEBAR, TOGGLE_SHOW_PAGE } from '../actions/ui_actions';
 
+const defaultUI = {
+    sidebarSmall: true,
+    showPage: false,
+};
 
-
-const UIReducer = (oldState = { sidebarSmall: true }, action) => {
+const UIReducer = (oldState = defaultUI, action) => {
     Object.freeze(oldState);
     let newState = merge({}, oldState);
     switch (action.type) {
         case TOGGLE_SIDEBAR:
-            let toggled = !newState.sidebarSmall;
-            return merge(newState, { sidebarSmall: toggled })
+            let toggledSide = !newState.sidebarSmall;
+            return merge(newState, { sidebarSmall: toggledSide });
+        case TOGGLE_SHOW_PAGE:
+            let toggledShow = !newState.showPage;
+            return merge(newState, { showPage: toggledShow })
         default: 
             return oldState;
     }
