@@ -26,7 +26,7 @@ class ModalSidebar extends React.Component {
                         </button>
                         <Link to='/' className='header-logo'>
                             <FontAwesomeIcon icon={faYoutube} />
-                            <span>YourTube</span>
+                            <span>Tubular</span>
                         </Link>
                     </div>
                     <div className='modal-sidebar-main'>

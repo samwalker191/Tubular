@@ -76,12 +76,12 @@ class SessionForm extends React.Component {
                     <div className="session-form-content">
                         <div className='session-form-logo'>
                             <FontAwesomeIcon icon={faYoutube}/> 
-                            <span>YourTube</span>
+                            <span>Tubular</span>
                         </div>
 
                         <header className='session-form-header'>
                             <h3>{this.props.formType}</h3>
-                            <p className='session-form-sub-header'>to continue to YourTube</p>
+                            <p className='session-form-sub-header'>to continue to Tubular</p>
                         </header>
 
                         <form className='session-form-inputs-container' onSubmit={this.handleSubmit}>

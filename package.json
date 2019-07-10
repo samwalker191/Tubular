@@ -1,5 +1,5 @@
 {
-  "name": "YourTube",
+  "name": "Tubular",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.4.5",
@@ -40,15 +40,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/samwalker191/YourTube.git"
+    "url": "git+https://github.com/samwalker191/Tubular.git"
   },
   "keywords": [],
   "author": "Samuel Walker",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/samwalker191/YourTube/issues"
+    "url": "https://github.com/samwalker191/Tubular/issues"
   },
-  "homepage": "https://github.com/samwalker191/YourTube#readme",
+  "homepage": "https://github.com/samwalker191/Tubular#readme",
   "devDependencies": {
     "webpack-cli": "^3.3.5"
   }
