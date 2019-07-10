@@ -9,9 +9,8 @@
 }
 
 .video-form-container {
-    width: 37%;
-    margin: auto;
-    // padding-top: 100px;
+    width: 47%;
+    margin-left: 289px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -48,6 +47,7 @@
 
 .video-form-video-upload-label {
     padding: 20px;
+    margin-right: 10px;
     height: 100px;
     width: 200px;
     display: flex;
@@ -58,11 +58,12 @@
     border: 2px solid rgb(229, 229, 229);
     border-radius: 2px;
     box-sizing: content-box;
-    margin: 0 70px 0 0;
+    // margin: 0 70px 0 0;
 }
 
 .video-form-thumbnail-upload-label {
     padding: 20px;
+    // margin-left: 5px;
     height: 100px;
     width: 200px;
     display: flex;
@@ -76,8 +77,8 @@
 }
 
 .video-form-thumbnail-upload-label img {
-    width: 100%;
-    height: auto;
+    width: 232px;
+    height: 132px;
 }
 
 .video-form-inputs-top label:hover {
@@ -122,13 +123,6 @@
     height: 90px;
 }
 
-// .video-form-submit-btn-container {
-//     align-self: flex-end;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     width: 17%;
-// }
 
 .video-form-buttons {
     display: flex;
@@ -147,7 +141,6 @@
 }
 
 .video-form-submit-btn {
-    // align-self: flex-end;
     background: #1A73E8;
     color: #fff;
     width: 80px;
