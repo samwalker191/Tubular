@@ -5,7 +5,8 @@ import Sidebar from './sidebar';
 const mapSTP = state => {
     return ({
         currentUserId: state.session.id,
-        users: state.entities.users
+        users: state.entities.users,
+        sidebarSmall: state.ui.sidebarSmall
     })
 };
 

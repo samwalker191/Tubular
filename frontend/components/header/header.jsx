@@ -13,6 +13,7 @@ class Header extends React.Component {
         this.handleLogout = this.handleLogout.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
+        this.handleToggle = this.handleToggle.bind(this);
     }
 
     handleLogout() {
@@ -26,6 +27,10 @@ class Header extends React.Component {
 
     handleInput(e) {
         this.setState({ search: e.currentTarget.value });
+    }
+
+    handleToggle() {
+        this.props.toggleSidebar();
     }
 
     render() {
@@ -54,7 +59,9 @@ class Header extends React.Component {
         return (
             <div className='header'>
                 <div className='header-left'>
-                    <FontAwesomeIcon icon={faBars}/>
+                    <button className='header-burger-button' onClick={this.handleToggle}>
+                        <FontAwesomeIcon icon={faBars}/>
+                    </button>
                     <Link to='/' className='header-logo'>
                         <FontAwesomeIcon icon={faYoutube} />
                         <span>YourTube</span>

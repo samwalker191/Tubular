@@ -22,10 +22,14 @@
     padding-left: 24px;
 }
 
-.header-left > svg {
+.header-burger-button > svg {
     font-size: 20px;
     font-weight: lighter;
     color: #606060;
+}
+
+.header-burger-button > svg:hover {
+    cursor: pointer;
 }
 
 .header-logo {

@@ -7,9 +7,15 @@ class Sidebar extends React.Component {
 
 
     render() {
+        let size;
+        if (this.props.sidebarSmall) {
+            size = 'small-sidebar';
+        } else {
+            size = 'large-sidebar';
+        }
 
         return (
-            <div className="sidebar-container">
+            <div className={`sidebar-container ${size}`}>
                 <div className='sidebar-spacer'></div>
                 <div className='sidebar-main'>
                     <Link to='/' className='sidebar-home'>
