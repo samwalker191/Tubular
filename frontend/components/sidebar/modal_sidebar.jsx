@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faYoutube, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faBars, faHome } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
@@ -34,6 +34,10 @@ class ModalSidebar extends React.Component {
                             <FontAwesomeIcon icon={faHome} />
                             <span>Home</span>
                         </Link>
+                        <a href='https://github.com/samwalker191' className={`modal-sidebar-github`}>
+                            <FontAwesomeIcon icon={faGithub} />
+                            <span>Github</span>
+                        </a>
                     </div>
                 </div>
             </div>

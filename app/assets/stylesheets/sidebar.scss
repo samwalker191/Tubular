@@ -33,7 +33,7 @@
     color: #606060;
 }
 
-.column {
+.sidebar-home.column {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -42,28 +42,28 @@
     position: fixed;
 }
 
-.column svg {
+.sidebar-home.column svg {
     padding-left: 3px;
 }
 
-.column span {
+.sidebar-home.column span {
     font-size: 12px;
     padding-top: 5px;
 }
 
-.row {
+.sidebar-home.row {
     display: flex;
     flex-direction: row;
     position: fixed;
     padding: 20px 51px 20px 20px;
 }
 
-.row svg {
+.sidebar-home.row svg {
     margin-right: 30px;
     margin-left: 4px;
 }
 
-.row span {
+.sidebar-home.row span {
     font-size: 18px;
 }
 
@@ -73,6 +73,55 @@
 }
 
 .sidebar-home svg {
+    font-size: 17px;
+}
+
+.sidebar-github {
+    color: #606060;
+}
+
+.sidebar-github.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 13px;
+    position: fixed;
+    top: 131px;
+}
+
+.sidebar-github.column svg {
+    padding-left: 3px;
+}
+
+.sidebar-github.column span {
+    font-size: 12px;
+    padding-top: 5px;
+}
+
+.sidebar-github.row {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    padding: 20px 47px 20px 20px;
+    top: 115px;
+}
+
+.sidebar-github.row svg {
+    margin-right: 30px;
+    margin-left: 4px;
+}
+
+.sidebar-github.row span {
+    font-size: 18px;
+}
+
+.sidebar-github:hover {
+    cursor: pointer;
+    background: rgb(220, 220, 220,);
+}
+
+.sidebar-github svg {
     font-size: 17px;
 }
 
