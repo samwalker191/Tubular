@@ -85,8 +85,10 @@ class VideoForm extends React.Component {
         let loading;
         if (this.state.loading) {
             loading = <FontAwesomeIcon icon={faSync} spin />
+            setTimeout(() => { document.getElementById('video-disable').disabled = true }, 1);
         } else {
             loading = `${this.props.buttonType}`
+            setTimeout(() => { document.getElementById('video-disable').disabled = false }, 1);
         }
 
         const thumbnailPreview = this.state.thumbnail ? <img src={this.state.thumbnail} /> : <FontAwesomeIcon icon={faCamera} size='3x' />;
@@ -147,7 +149,7 @@ class VideoForm extends React.Component {
                             </ul>
                             <div className='video-form-buttons'>
                                 {deleteBtn}
-                                <button className='video-form-submit-btn' onClick={this.handleSubmit}>
+                                <button className='video-form-submit-btn' id='video-disable' onClick={this.handleSubmit}>
                                     {loading}
                                 </button>
                             </div>

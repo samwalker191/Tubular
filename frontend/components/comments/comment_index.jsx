@@ -79,8 +79,10 @@ class CommentIndex extends React.Component {
         let active;
         if (this.state.submitActive && this.state.body !== '') {
             active = 'comment-submit-btn-active';
+            setTimeout(() => {document.getElementById('comment-disable').disabled = false }, 1);
         } else {
             active = 'comment-submit-btn';
+            setTimeout(() => { document.getElementById('comment-disable').disabled = true }, 1);
         }
 
         return(
@@ -100,7 +102,7 @@ class CommentIndex extends React.Component {
                                 <button className='comment-cancel-btn' onClick={this.handleCancel}>
                                     CANCEL
                                 </button>
-                                <button className={active} onClick={this.handleSubmit}>
+                                <button id='comment-disable' className={active} onClick={this.handleSubmit}>
                                     COMMENT
                                 </button>
                             </div>

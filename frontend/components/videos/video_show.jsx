@@ -14,6 +14,7 @@ class VideoShow extends React.Component {
         this.handleVideoLike = this.handleVideoLike.bind(this);
         this.handleVideoDislike = this.handleVideoDislike.bind(this);
         this.handleVideoPlay = this.handleVideoPlay.bind(this);
+        this.handleUpNext = this.handleUpNext.bind(this);
     }
 
     componentDidMount() {
@@ -88,6 +89,19 @@ class VideoShow extends React.Component {
         });
     }
 
+    handleAutoPlay() {
+        setTimeout(() => document.getElementById('video').play(), 1000);        
+    }
+
+    handleUpNext(e) {
+        e.preventDefault();
+        this.props.history.push(`/watch/${this.props.videos[0].id}`)
+    }
+
+    removeCurrentVideo(videosArray) {
+        return videosArray.filter(video => video.id !== parseInt(this.props.match.params.videoId));
+    }
+
     render() {
         if (this.props.shownVideo === undefined) {
             return null
@@ -125,14 +139,21 @@ class VideoShow extends React.Component {
             modal = 'modal';
             hidden = '';
         }
-        
+
         return (
             <div>
                 <div className='video-show-page'>
                     <div className='video-show-container'>
                         
                             <div className='video-container'>
-                                <video width="100%" controls onPlay={this.handleVideoPlay}>
+                                <video 
+                                width="100%" 
+                                controls 
+                                onPlay={this.handleVideoPlay} 
+                                onEnded={this.handleUpNext}
+                                onCanPlay={this.handleAutoPlay}
+                                id='video'
+                            >
                                     <source src={this.props.shownVideo.videoURL} type="video/mp4"></source>
                                 </video>
                             </div>
@@ -177,8 +198,6 @@ class VideoShow extends React.Component {
                     <div className='video-show-index-container'>
                         <h3>Up Next</h3>
                         <ul className='video-show-index-list'>
-                            {videoItems}
-                            {videoItems}
                             {videoItems}
                         </ul>
                     </div>

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchVideos } from '../../actions/videos_actions';
 import VideoIndex from './video_index';
+import { shuffle } from '../../util/selectors';
 
 const mapSTP = state => {
     return ({
