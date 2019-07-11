@@ -89,9 +89,9 @@ class VideoShow extends React.Component {
         });
     }
 
-    handleAutoPlay() {
-        setTimeout(() => document.getElementById('video').play(), 1000);        
-    }
+    // handleAutoPlay() {
+    //     setTimeout(() => document.getElementById('video').play(), 1000);        
+    // }
 
     handleUpNext(e) {
         e.preventDefault();
@@ -151,7 +151,7 @@ class VideoShow extends React.Component {
                                 controls 
                                 onPlay={this.handleVideoPlay} 
                                 onEnded={this.handleUpNext}
-                                onCanPlay={this.handleAutoPlay}
+                                autoPlay
                                 id='video'
                             >
                                     <source src={this.props.shownVideo.videoURL} type="video/mp4"></source>
