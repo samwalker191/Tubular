@@ -23,6 +23,10 @@ class VideoForm extends React.Component {
         this.handleDelete = this.handleDelete.bind(this);
     }
 
+    componentDidMount() {
+        this.props.clearErrors();
+    }
+
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value

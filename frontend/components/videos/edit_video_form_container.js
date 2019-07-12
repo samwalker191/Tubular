@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import VideoForm from './video_form';
-import { fetchVideo, updateVideo, deleteVideo } from '../../actions/videos_actions';
+import { fetchVideo, updateVideo, deleteVideo, clearErrors } from '../../actions/videos_actions';
 
 const mapSTP = (state, ownProps) => {
     let currentUser = state.session.id === null ? null : state.entities.users[state.session.id];
@@ -25,7 +25,8 @@ const mapDTP = dispatch => {
     return ({
         action: (video, formData) => dispatch(updateVideo(video, formData)),
         fetchVideo: videoId => dispatch(fetchVideo(videoId)),
-        deleteVideo: videoId => dispatch(deleteVideo(videoId))
+        deleteVideo: videoId => dispatch(deleteVideo(videoId)),
+        clearErrors: () => dispatch(clearErrors())
     })
 };
 
@@ -53,6 +54,7 @@ class EditVideoForm extends React.Component {
                 currentUser={this.props.currentUser}
                 buttonType={this.props.buttonType}
                 deleteVideo={this.props.deleteVideo}
+                clearErrors={this.props.clearErrors}
             />
         );
     }

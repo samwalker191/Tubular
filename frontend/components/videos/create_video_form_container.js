@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import VideoForm from './video_form';
-import { createVideo, deleteVideo } from '../../actions/videos_actions';
+import { createVideo, deleteVideo, clearErrors } from '../../actions/videos_actions';
 
 const mapSTP = state => {
     let currentUser = state.session.id === null ? null : state.entities.users[state.session.id];
@@ -22,7 +22,8 @@ const mapDTP = dispatch => {
     
     return ({
         action: formData => dispatch(createVideo(formData)),
-        deleteVideo: videoId => dispatch(deleteVideo(videoId))
+        deleteVideo: videoId => dispatch(deleteVideo(videoId)),
+        clearErrors: () => dispatch(clearErrors())
     })
 };
 
