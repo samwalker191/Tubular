@@ -127,17 +127,6 @@ ActiveRecord::Base.transaction do
     file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/keyboard_cat.mp4')
     vid8.video.attach(io: file, filename: 'keyboard_cat.mp4')
 
-    vid9 = Video.create!(
-        title: 'Lo Fi Hip Bop Beats to Study/Relax to, but only for like, 20 seconds',
-        description: 'Quick homework session.',
-        owner_id: u4.id,
-        views: 402
-    )
-    file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/lofi_thumbnail.png')
-    vid9.thumbnail.attach(io: file, filename: 'lofi_thumbnail.png')
-    file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/lofi_trimmed.mp4')
-    vid9.video.attach(io: file, filename: 'lofi_trimmed.mp4')
-
     vid10 = Video.create!(
         title: 'Nick Cage driving',
         description: 'Gotta go fast.',
@@ -186,12 +175,6 @@ ActiveRecord::Base.transaction do
         user_id: u2.id,
         video_id: vid11.id,
         body: 'Head to this link to see something cool!: http://bit.ly/Yeet82913'
-    )
-
-    com2 = Comment.create!(
-        user_id: u2.id,
-        video_id: vid9.id,
-        body: 'Just long enough to really get relaxed. Thank you!'
     )
 
     com3 = Comment.create!(
