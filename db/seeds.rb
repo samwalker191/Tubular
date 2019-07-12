@@ -48,27 +48,18 @@ ActiveRecord::Base.transaction do
     file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/headshot.mp4')
     vid1.video.attach(io: file, filename: 'headshot.mp4')
 
-    vid2 = Video.create!(
-        title: 'TESTER VIDEO',
-        description: 'Demo user should be able to edit and delete this video',
-        owner_id: u1.id,
-        views: 5
-    )
-    file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/test_thumbnail.jpg')
-    vid2.thumbnail.attach(io: file, filename: 'test_thumbnail.jpg')
-    file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/test_vid.mp4')
-    vid2.video.attach(io: file, filename: 'test_vid.mp4')
+    # vid2 = Video.create!(
+    #     title: 'TESTER VIDEO',
+    #     description: 'Demo user should be able to edit and delete this video',
+    #     owner_id: u1.id,
+    #     views: 5
+    # )
+    # file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/test_thumbnail.jpg')
+    # vid2.thumbnail.attach(io: file, filename: 'test_thumbnail.jpg')
+    # file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/test_vid.mp4')
+    # vid2.video.attach(io: file, filename: 'test_vid.mp4')
 
-    vid3 = Video.create!(
-        title: 'Crazy Drivers | PUBG w/ Friends',
-        description: 'Got to look both ways before crossing',
-        owner_id: u3.id,
-        views: 200
-    )
-    file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/driver_thumbnail.png')
-    vid3.thumbnail.attach(io: file, filename: 'driver_thumbnail.png')
-    file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/crazydriver.mp4')
-    vid3.video.attach(io: file, filename: 'crazydriver.mp4')
+    
 
     vid4 = Video.create!(
         title: 'Developers',
@@ -113,6 +104,17 @@ ActiveRecord::Base.transaction do
     vid7.thumbnail.attach(io: file, filename: 'hamtaro_thumbnail.png')
     file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/hamtaro.mp4')
     vid7.video.attach(io: file, filename: 'hamtaro.mp4')
+
+    vid3 = Video.create!(
+        title: 'Crazy Drivers | PUBG w/ Friends',
+        description: 'Got to look both ways before crossing',
+        owner_id: u3.id,
+        views: 200
+    )
+    file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/driver_thumbnail.png')
+    vid3.thumbnail.attach(io: file, filename: 'driver_thumbnail.png')
+    file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/crazydriver.mp4')
+    vid3.video.attach(io: file, filename: 'crazydriver.mp4')
 
     vid8 = Video.create!(
         title: 'Keyboard Cat',
