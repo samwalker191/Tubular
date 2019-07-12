@@ -6,6 +6,13 @@ export const shuffle = (array) => {
     return array;
 };
 
+// export const filterFromHistory = (videosArray, filterId, historyArray) => {
+//     if (!historyArray.includes(filterId)) {
+//         historyArray.push(filterId);
+//     }
+//     return videosArray.filter(video => !(historyArray.includes(video.id)));
+// };
+
 export const filter = (videosArray, filterId) => {
     return videosArray.filter(video => video.id !== filterId);
 };

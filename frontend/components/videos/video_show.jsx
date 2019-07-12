@@ -31,9 +31,8 @@ class VideoShow extends React.Component {
         
         if (prevProps.shownVideo) {
             if (prevProps.shownVideo.id != this.props.match.params.videoId) {
-                this.props.fetchVideo(this.props.match.params.videoId)
-                    .then(() => window.location.reload())
-                
+                this.props.fetchVideo(this.props.match.params.videoId);
+                    // .then(() => window.location.reload())  
             }
         }
     }
@@ -153,6 +152,7 @@ class VideoShow extends React.Component {
                                 onEnded={this.handleUpNext}
                                 autoPlay
                                 id='video'
+                                key={this.props.shownVideo.videoURL}
                             >
                                     <source src={this.props.shownVideo.videoURL} type="video/mp4"></source>
                                 </video>
