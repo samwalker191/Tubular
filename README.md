@@ -46,6 +46,30 @@ In order to keep code more DRY, both the upload and edit video form are rendered
 };
 ```
 ## Likes/Dislikes
-Once logged in, users can decide whether or not they would like to like or dislike the video they are watching. All they need to do is click on the thumb's up or thumb's down icon below the video player, example shown below.
+Once logged in, users can decide whether or not they would like to like or dislike the video they are watching. All they need to do is click on the thumb's up or thumb's down icon below the video player. The exmaple below points out the icons' location with respect to the video title and views count. 
 
+![alt text](https://github.com/samwalker191/Tubular/blob/master/app/assets/images/likes.png "Likes")
+
+Users are only able to like or dislike a video once, and cannot have both a like and dislike for the same video. This is to allow the likes/dislikes count on each video to more accurately represent the communities feelings towards the video as a whole. 
+
+The likes/dislikes feature was implemented in the backend using a single polymorphic table. This was to make this feature to be more modular, allowing me to more easily add this feature to other sections of the app, such as comments. The schema for the table is shown below.
+
+## `likes`
+
+| Column Name | Data Type | Details |
+| --- | --- | --- |
+| `id` | integer | not null, primary key |
+| `liked` | boolean | not null |
+| `user_id` | integer | not null, indexed, foreign key |
+| `likeable_id` | integer | not null, indexed |
+| `likeable_type` | string | not null, indexed |
+| `created_at` | datetime | not null |
+| `updated_at` | datetime | not null |
+
+## Upcoming Features
+The following is a list of features I would like to add to the app:
+* Channels & Subscriptions
+* Likes for comments
+* Ability to reply to comments
+* More dynamic search function that searches by more than just title
 
