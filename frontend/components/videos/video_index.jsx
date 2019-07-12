@@ -9,6 +9,7 @@ class VideoIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchVideos('');
+        window.scrollTo(0, 0);
     }
 
     shuffle(arr) {

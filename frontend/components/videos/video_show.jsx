@@ -21,6 +21,7 @@ class VideoShow extends React.Component {
         this.props.fetchVideos('');
         this.props.fetchVideo(this.props.match.params.videoId);
         this.props.toggleShowPage();
+        window.scrollTo(0, 0);
     }
 
     componentWillUnmount() {
@@ -32,7 +33,7 @@ class VideoShow extends React.Component {
         if (prevProps.shownVideo) {
             if (prevProps.shownVideo.id != this.props.match.params.videoId) {
                 this.props.fetchVideo(this.props.match.params.videoId);
-                    // .then(() => window.location.reload())  
+                window.scrollTo(0, 0);
             }
         }
     }
