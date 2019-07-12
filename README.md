@@ -45,4 +45,7 @@ In order to keep code more DRY, both the upload and edit video form are rendered
     });
 };
 ```
+## Likes/Dislikes
+Once logged in, users can decide whether or not they would like to like or dislike the video they are watching. All they need to do is click on the thumb's up or thumb's down icon below the video player, example shown below.
+
 
