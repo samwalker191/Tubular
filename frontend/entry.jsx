@@ -4,8 +4,8 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // FOR TESTING
-import { fetchVideo, fetchVideos, updateVideo } from './actions/videos_actions';
-import { toggleSidebar } from './actions/ui_actions';
+// import { fetchVideo, fetchVideos, updateVideo } from './actions/videos_actions';
+// import { toggleSidebar } from './actions/ui_actions';
 // FOR TESTING
 
 
@@ -26,9 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // FOR TESTING
-    window.store = store;
-    window.getState = store.getState;
-    window.toggleSidebar = toggleSidebar;
+    // window.store = store;
+    // window.getState = store.getState;
+    // window.toggleSidebar = toggleSidebar;
     // window.fetchVideo = fetchVideo;
     // window.fetchVideos = fetchVideos;
     // window.updateVideo = updateVideo;
