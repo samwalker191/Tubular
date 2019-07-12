@@ -69,6 +69,8 @@
 
 .video-show-comments-form-container {
     display: flex;
+    margin-bottom: 40px;
+    width: 99%;
 }
 
 .video-show-comments-form {
@@ -113,9 +115,7 @@
     font-size: 20px;
 }
 
-.video-show-comments-form-container {
-    margin-bottom: 40px;
-}
+
 
 .video-show-comments-form form {
     height: 30px;

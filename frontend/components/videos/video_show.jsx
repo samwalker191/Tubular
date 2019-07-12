@@ -140,13 +140,14 @@ class VideoShow extends React.Component {
         }
 
         return (
-            <div>
+            <div className='video-show-wrapper'>
                 <div className='video-show-page'>
                     <div className='video-show-container'>
                         
                             <div className='video-container'>
                                 <video 
-                                width="100%" 
+                                // width="100%" 
+                                // height="100"
                                 controls 
                                 onPlay={this.handleVideoPlay} 
                                 onEnded={this.handleUpNext}

@@ -1,3 +1,7 @@
+.video-show-wrapper {
+    width: 100%;
+}
+
 .video-show-page {
     margin: 80px auto;
     width: 95%;
@@ -8,7 +12,7 @@
 
 .video-show-container {
     padding-right: 24px;
-    width: 64%;
+    // width: 64%;
     height: auto;
 }
 
@@ -26,7 +30,8 @@
 
 .video-container {
     // width: 1260px;
-    width: 100%;
+    width: 875px;
+    height: 495px;
     margin-bottom: 30px;
 }
 
@@ -105,7 +110,7 @@
 }
 
 .video-show-index-container {
-    width: 30%;
+    width: 77%;
 }
 
 .video-show-index-container h3 {
