@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faVideo } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
 
@@ -22,6 +22,13 @@ class Sidebar extends React.Component {
             content = 'row';
         }
 
+        let uploadSend;
+        if (this.props.currentUserId) {
+            uploadSend = '/upload';
+        } else {
+            uploadSend = '/signin';
+        }
+
         return (
             <div className={`${size}`}>
                 <div className='sidebar-spacer'></div>
@@ -29,6 +36,10 @@ class Sidebar extends React.Component {
                     <Link to='/' className={`sidebar-home ${content}`}>
                         <FontAwesomeIcon icon={faHome}/>
                         <span>Home</span>
+                    </Link>
+                    <Link to={`${uploadSend}`} className={`sidebar-upload ${content}`}>
+                        <FontAwesomeIcon icon={faVideo}/>
+                        <span>Upload</span>
                     </Link>
                     <a href='https://github.com/samwalker191' className={`sidebar-github ${content}`}>
                         <FontAwesomeIcon icon={faGithub}/>
