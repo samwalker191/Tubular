@@ -76,6 +76,57 @@
     font-size: 17px;
 }
 
+// upload
+.sidebar-upload {
+    color: #606060;
+}
+
+.sidebar-upload.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 12px;
+    position: fixed;
+    top: 131px;
+}
+
+.sidebar-upload.column svg {
+    padding-left: 3px;
+}
+
+.sidebar-upload.column span {
+    font-size: 12px;
+    padding-top: 5px;
+}
+
+.sidebar-upload.row {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    padding: 20px 40px 20px 21px;
+    top: 115px;
+}
+
+.sidebar-upload.row svg {
+    margin-right: 30px;
+    margin-left: 4px;
+}
+
+.sidebar-upload.row span {
+    font-size: 18px;
+}
+
+.sidebar-upload:hover {
+    cursor: pointer;
+    background: rgb(220, 220, 220,);
+}
+
+.sidebar-upload svg {
+    font-size: 17px;
+}
+
+// github
 .sidebar-github {
     color: #606060;
 }
@@ -87,7 +138,7 @@
     align-items: center;
     padding: 20px 13px;
     position: fixed;
-    top: 131px;
+    top: 205px;
 }
 
 .sidebar-github.column svg {
@@ -104,7 +155,7 @@
     flex-direction: row;
     position: fixed;
     padding: 20px 47px 20px 20px;
-    top: 115px;
+    top: 230px;
 }
 
 .sidebar-github.row svg {
