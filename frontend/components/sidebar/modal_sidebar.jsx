@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faYoutube, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faYoutube, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faBars, faHome, faVideo } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
@@ -47,6 +47,10 @@ class ModalSidebar extends React.Component {
                         <a href='https://github.com/samwalker191' className={`modal-sidebar-github`}>
                             <FontAwesomeIcon icon={faGithub} />
                             <span>Github</span>
+                        </a>
+                        <a href='www.linkedin.com/in/samuelwalker191' className={`modal-sidebar-linkedin`}>
+                            <FontAwesomeIcon icon={faLinkedin} />
+                            <span>LinkedIn</span>
                         </a>
                     </div>
                 </div>

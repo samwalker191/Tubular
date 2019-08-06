@@ -72,7 +72,26 @@
 }
 
 .modal-sidebar-github svg {
-    margin-right: 30px;
+    margin-right: 32px;
+    margin-left: 3px;
+    font-size: 18px;
+    color: #606060;
+}
+
+.modal-sidebar-linkedin {
+    // margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    padding: 20px 41px 20px 20px;
+}
+
+.modal-sidebar-linkedin:hover {
+    cursor: pointer;
+    background: rgb(220, 220, 220,);
+}
+
+.modal-sidebar-linkedin svg {
+    margin-right: 35px;
     margin-left: 3px;
     font-size: 18px;
     color: #606060;
