@@ -176,4 +176,54 @@
     font-size: 17px;
 }
 
+// LinkedIn
+.sidebar-linkedin {
+    color: #606060;
+}
+
+.sidebar-linkedin.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 19px 8px;
+    position: fixed;
+    top: 279px;
+}
+
+.sidebar-linkedin.column svg {
+    padding-left: 2px;
+}
+
+.sidebar-linkedin.column span {
+    font-size: 12px;
+    padding-top: 5px;
+}
+
+.sidebar-linkedin.row {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    padding: 20px 47px 20px 20px;
+    top: 200px;
+}
+
+.sidebar-linkedin.row svg {
+    margin-right: 30px;
+    margin-left: 4px;
+}
+
+.sidebar-linkedin.row span {
+    font-size: 18px;
+}
+
+.sidebar-linkedin:hover {
+    cursor: pointer;
+    background: rgb(220, 220, 220,);
+}
+
+.sidebar-linkedin svg {
+    font-size: 17px;
+}
+
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faVideo } from '@fortawesome/free-solid-svg-icons';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
 
 class Sidebar extends React.Component {
@@ -44,6 +44,10 @@ class Sidebar extends React.Component {
                     <a href='https://github.com/samwalker191' className={`sidebar-github ${content}`}>
                         <FontAwesomeIcon icon={faGithub}/>
                         <span>Github</span>
+                    </a>
+                    <a href='https://github.com/samwalker191' className={`sidebar-linkedin ${content}`}>
+                        <FontAwesomeIcon icon={faLinkedin}/>
+                        <span>LinkedIn</span>
                     </a>
                 </div>
             </div>
