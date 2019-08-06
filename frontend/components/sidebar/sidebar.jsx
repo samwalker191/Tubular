@@ -41,11 +41,11 @@ class Sidebar extends React.Component {
                         <FontAwesomeIcon icon={faVideo}/>
                         <span>Upload</span>
                     </Link>
-                    <a href='https://github.com/samwalker191' className={`sidebar-github ${content}`}>
+                    <a href='https://github.com/samwalker191' className={`sidebar-github ${content}`} target="_blank">
                         <FontAwesomeIcon icon={faGithub}/>
                         <span>Github</span>
                     </a>
-                    <a href='www.linkedin.com/in/samuelwalker191' className={`sidebar-linkedin ${content}`}>
+                    <a href='https://linkedin.com/in/samuelwalker191' className={`sidebar-linkedin ${content}`} target="_blank">
                         <FontAwesomeIcon icon={faLinkedin}/>
                         <span>LinkedIn</span>
                     </a>

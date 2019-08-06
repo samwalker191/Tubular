@@ -44,11 +44,11 @@ class ModalSidebar extends React.Component {
                             <FontAwesomeIcon icon={faVideo} />
                             <span>Upload</span>
                         </Link>
-                        <a href='https://github.com/samwalker191' className={`modal-sidebar-github`}>
+                        <a href='https://github.com/samwalker191' className={`modal-sidebar-github`} target="_blank">
                             <FontAwesomeIcon icon={faGithub} />
                             <span>Github</span>
                         </a>
-                        <a href='www.linkedin.com/in/samuelwalker191' className={`modal-sidebar-linkedin`}>
+                        <a href='https://linkedin.com/in/samuelwalker191' className={`modal-sidebar-linkedin`} target="_blank">
                             <FontAwesomeIcon icon={faLinkedin} />
                             <span>LinkedIn</span>
                         </a>
