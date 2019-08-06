@@ -42,10 +42,11 @@ class Header extends React.Component {
                         </Link>
         } else {
             authButton = <button className='header-logout' onClick={this.handleLogout}>
-                            <div>{this.props.users[this.props.currentUserId]
+                            <div>
+                                {this.props.users[this.props.currentUserId]
                                 .username.slice(0,1).toUpperCase()}
                             </div>
-                            <span>LOGOUT</span>
+                            {/* <span>LOGOUT</span> */}
                         </button>
         }
 
