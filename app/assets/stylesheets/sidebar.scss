@@ -26,7 +26,7 @@
 .sidebar-main {
     display: flex;
     flex-direction: column;
-    // position: fixed;
+    position: fixed;
 }
 
 .sidebar-home {
@@ -34,12 +34,13 @@
 }
 
 .sidebar-home.column {
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px 15px;
-    position: fixed;
+    // position: fixed;
 }
 
 .sidebar-home.column svg {
@@ -54,8 +55,9 @@
 .sidebar-home.row {
     display: flex;
     flex-direction: row;
-    position: fixed;
+    // position: fixed;
     padding: 20px 51px 20px 20px;
+    margin-top: 10px;
 }
 
 .sidebar-home.row svg {
@@ -87,7 +89,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px 12px;
-    position: fixed;
+    // position: fixed;
     top: 131px;
 }
 
@@ -103,7 +105,7 @@
 .sidebar-upload.row {
     display: flex;
     flex-direction: row;
-    position: fixed;
+    // position: fixed;
     padding: 20px 40px 20px 21px;
     top: 115px;
 }
@@ -137,7 +139,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px 13px;
-    position: fixed;
+    // position: fixed;
     top: 205px;
 }
 
@@ -153,7 +155,7 @@
 .sidebar-github.row {
     display: flex;
     flex-direction: row;
-    position: fixed;
+    // position: fixed;
     padding: 20px 44px 20px 20px;
     top: 174px;
 }
@@ -187,7 +189,7 @@
     justify-content: center;
     align-items: center;
     padding: 19px 8px;
-    position: fixed;
+    // position: fixed;
     top: 279px;
 }
 
@@ -203,7 +205,7 @@
 .sidebar-linkedin.row {
     display: flex;
     flex-direction: row;
-    position: fixed;
+    // position: fixed;
     padding: 20px 29px 20px 20px;
     top: 233px;
 }
@@ -237,7 +239,7 @@
     justify-content: center;
     align-items: center;
     padding: 19px 12.5px;
-    position: fixed;
+    // position: fixed;
     top: 351px;
 }
 
@@ -253,7 +255,7 @@
 .sidebar-personal.row {
     display: flex;
     flex-direction: row;
-    position: fixed;
+    // position: fixed;
     padding: 20px 42px 20px 20px;
     top: 292px;
 }
