@@ -53,7 +53,7 @@
 }
 
 .header-right {
-    width: 110px;
+    width: 8vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -73,6 +73,7 @@
     display: flex;
     align-items: center;
     color: #065FD4;
+    margin-left: 24px;
 }
 
 .header-signin svg {
