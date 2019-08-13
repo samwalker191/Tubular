@@ -4,6 +4,7 @@ import { addLike, changeLike, removeLike } from '../../actions/likes_actions';
 import { toggleShowPage, addToHistory } from '../../actions/ui_actions';
 import VideoShow from './video_show';
 import { filter, shuffle } from '../../util/selectors';
+import { toggleSidebar } from '../../actions/ui_actions';
 
 const mapSTP = (state, ownProps) => {
     let currentUser = state.session.id === null ? null : state.entities.users[state.session.id];
@@ -30,7 +31,8 @@ const mapDTP = dispatch => {
         removeLike: likeId => dispatch(removeLike(likeId)),
         toggleShowPage: () => dispatch(toggleShowPage()),
         updateVideoSimple: video => dispatch(updateVideoSimple(video)),
-        addToHistory: video => dispatch(addToHistory(video))
+        addToHistory: video => dispatch(addToHistory(video)),
+        toggleSidebar: () => dispatch(toggleSidebar())
     });
 };
 

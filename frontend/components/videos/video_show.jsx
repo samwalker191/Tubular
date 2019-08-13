@@ -15,6 +15,7 @@ class VideoShow extends React.Component {
         this.handleVideoDislike = this.handleVideoDislike.bind(this);
         this.handleVideoPlay = this.handleVideoPlay.bind(this);
         this.handleUpNext = this.handleUpNext.bind(this);
+        this.toggleSidebar = this.toggleSidebar.bind(this);
     }
 
     componentDidMount() {
@@ -36,6 +37,10 @@ class VideoShow extends React.Component {
                 window.scrollTo(0, 0);
             }
         }
+    }
+
+    toggleSidebar() {
+        this.props.toggleSidebar();
     }
 
     handleVideoLike() {
@@ -205,7 +210,7 @@ class VideoShow extends React.Component {
                     </div>
                 </div>
                 <div className={hidden}>
-                    <div className={modal}></div>
+                    <div className={modal} onClick={this.toggleSidebar}></div>
                     <div>
                         <ModalSidebarContainer />
                     </div>
