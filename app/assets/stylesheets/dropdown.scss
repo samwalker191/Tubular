@@ -5,7 +5,6 @@
 }
 
 .dropdown-box {
-    height: 500px;
     width: 300px;
     background: white;
     z-index: 500;
@@ -16,6 +15,8 @@
     display: flex;
     justify-content: flex-start;
     width: 100%;
+    border-bottom: 1px solid rgb(229, 229, 229);
+    padding: 16px;
 }
 
 .dropdown-box-header-icon {
@@ -25,14 +26,67 @@
     background: rgb(253, 77, 41);
     color: white;
     font-size: 20px;
-    height: 40px;
-    width: 40px;
+    height: 38px;
+    width: 38px;
     border-radius: 100%;
     line-height: 36px;
-    margin: 10px;
+    margin-right: 18px;
 }
 
 .dropdown-box-header-user {
     display: flex;
     flex-direction: column;
+}
+
+.dropdown-box-header-user-username {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.dropdown-box-header-user-email {
+    font-size: .9em;
+}
+
+.dropdown-box-main {
+    display: flex;
+    flex-direction: column;
+    padding: 9px 0;
+}
+
+.dropdown-box-main a {
+    padding: 10px 10px 10px 20px;
+    color: #606060;
+}
+
+.dropdown-box-main a svg {
+    font-size: 18px;
+}
+
+.dropdown-box-main a:hover {
+    background: rgb(229, 229, 229);
+    cursor: pointer;
+}
+
+.dropdown-home svg {
+    margin: 0 20px 0 0;
+}
+
+.dropdown-upload svg {
+    margin: 0 20px 0 0;
+}
+
+.dropdown-github svg {
+    margin: 0 22px 0 0;
+}
+
+.dropdown-linkedin svg {
+    font-size: 24px;
+    margin: 0 25px 0 0;
+}
+
+.dropdown-personal svg {
+    font-size: 19px;
+    margin: 0 26px 0 0;
 }

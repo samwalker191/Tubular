@@ -11,19 +11,18 @@ class Header extends React.Component {
 
         this.state = { search: '', dropdownBoxClassName: 'hidden' }
 
-        this.handleLogout = this.handleLogout.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.toggleSidebar = this.toggleSidebar.bind(this);
         this.toggleDropdown = this.toggleDropdown.bind(this);
     }
 
-    handleLogout() {
-        this.props.logout();
-    }
+    
 
     handleSearch() {
-        this.props.history.push(`/search/${this.state.search}`);
+        if (this.state.search !== '') {
+            this.props.history.push(`/search/${this.state.search}`);
+        }
         this.setState({ search: '' });
     }
 
@@ -44,6 +43,7 @@ class Header extends React.Component {
     }
 
     render() {
+
         let authButton;
         if (this.props.currentUserId === null) {
             authButton = <Link to='/signin' className='header-signin'>

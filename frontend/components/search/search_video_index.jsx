@@ -25,7 +25,7 @@ class SearchVideoIndex extends React.Component {
         if (videoItems.length > 0) {
             searchResults = 'Search Results';
         } else {
-            searchResults = 'No Results Found, please update search query';
+            searchResults = 'No results found, please update your search query';
         }
         return(
             <div className='search-results-page'>
