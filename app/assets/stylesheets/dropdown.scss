@@ -14,4 +14,25 @@
 
 .dropdown-box-header {
     display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.dropdown-box-header-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(253, 77, 41);
+    color: white;
+    font-size: 20px;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    line-height: 36px;
+    margin: 10px;
+}
+
+.dropdown-box-header-user {
+    display: flex;
+    flex-direction: column;
 }
