@@ -226,4 +226,54 @@
     font-size: 17px;
 }
 
+// Personal Site
+.sidebar-personal {
+    color: #606060;
+}
+
+.sidebar-personal.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 19px 12.5px;
+    position: fixed;
+    top: 351px;
+}
+
+.sidebar-personal.column svg {
+    padding-left: 2px;
+}
+
+.sidebar-personal.column span {
+    font-size: 12px;
+    padding-top: 5px;
+}
+
+.sidebar-personal.row {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    padding: 20px 42px 20px 20px;
+    top: 292px;
+}
+
+.sidebar-personal.row svg {
+    margin-right: 36px;
+    margin-left: 4px;
+}
+
+.sidebar-personal.row span {
+    font-size: 18px;
+}
+
+.sidebar-personal:hover {
+    cursor: pointer;
+    background: rgb(220, 220, 220,);
+}
+
+.sidebar-personal svg {
+    font-size: 17px;
+}
+
 

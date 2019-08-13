@@ -96,3 +96,22 @@
     font-size: 18px;
     color: #606060;
 }
+
+.modal-sidebar-personal {
+    // margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    padding: 20px 41px 20px 20px;
+}
+
+.modal-sidebar-personal:hover {
+    cursor: pointer;
+    background: rgb(220, 220, 220,);
+}
+
+.modal-sidebar-personal svg {
+    margin-right: 35px;
+    margin-left: 3px;
+    font-size: 18px;
+    color: #606060;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faVideo } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faVideo, faUser } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
 
@@ -48,6 +48,10 @@ class Sidebar extends React.Component {
                     <a href='https://linkedin.com/in/samuelwalker191' className={`sidebar-linkedin ${content}`} target="_blank">
                         <FontAwesomeIcon icon={faLinkedin}/>
                         <span>LinkedIn</span>
+                    </a>
+                    <a href='https://samuelwalker.me' className={`sidebar-personal ${content}`} target="_blank">
+                        <FontAwesomeIcon icon={faUser} />
+                        <span>Author</span>
                     </a>
                 </div>
             </div>
