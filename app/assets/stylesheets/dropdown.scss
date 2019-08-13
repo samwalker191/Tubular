@@ -60,7 +60,18 @@
     color: #606060;
 }
 
+.dropdown-box-main button {
+    padding: 10px 10px 10px 20px;
+    color: #606060;
+    display: flex;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
 .dropdown-box-main a svg {
+    font-size: 18px;
+}
+.dropdown-box-main button svg {
     font-size: 18px;
 }
 
@@ -69,24 +80,33 @@
     cursor: pointer;
 }
 
+.dropdown-box-main button:hover {
+    background: rgb(229, 229, 229);
+    cursor: pointer;
+}
+
 .dropdown-home svg {
-    margin: 0 20px 0 0;
+    margin-right: 20px;
 }
 
 .dropdown-upload svg {
-    margin: 0 20px 0 0;
+    margin-right: 20px;
 }
 
 .dropdown-github svg {
-    margin: 0 22px 0 0;
+    margin-right: 22px;
 }
 
 .dropdown-linkedin svg {
     font-size: 24px;
-    margin: 0 25px 0 0;
+    margin-right: 25px;
 }
 
 .dropdown-personal svg {
     font-size: 19px;
-    margin: 0 26px 0 0;
+    margin-right: 26px;
+}
+
+.dropdown-logout svg {
+    margin-right: 23px;
 }
