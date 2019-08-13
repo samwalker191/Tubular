@@ -9,15 +9,14 @@ class Header extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { search: '', dropdownBoxClassName: 'hidden' }
+        this.state = { search: '', dropdownBoxClassName: 'hidden', childToggle: true }
 
         this.handleInput = this.handleInput.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.toggleSidebar = this.toggleSidebar.bind(this);
         this.toggleDropdown = this.toggleDropdown.bind(this);
+        this.toggleDropdownChild = this.toggleDropdownChild.bind(this);
     }
-
-    
 
     handleSearch() {
         if (this.state.search !== '') {
@@ -35,11 +34,15 @@ class Header extends React.Component {
     }
 
     toggleDropdown() {
-        if (this.state.dropdownBoxClassName === 'hidden') {
-            this.setState({ dropdownBoxClassName: '' })
+        if (this.state.childToggle) {
+            this.setState({childToggle: false })
         } else {
-            this.setState({ dropdownBoxClassName: 'hidden' })
+            this.setState({childToggle: true })
         }
+    }
+
+    toggleDropdownChild(childState) {
+        this.setState({ childToggle: childState });
     }
 
     render() {
@@ -65,6 +68,13 @@ class Header extends React.Component {
             uploadSend = '/upload';
         } else {
             uploadSend= '/signin';
+        }
+
+        let dropdownHide;
+        if (this.state.childToggle) {
+            dropdownHide = 'hidden';
+        } else {
+            dropdownHide = '';
         }
 
         return (
@@ -99,11 +109,12 @@ class Header extends React.Component {
                         <FontAwesomeIcon icon={faVideo} />
                     </Link>
                     {authButton}
-                    <div className={`dropdown-box-container ${this.state.dropdownBoxClassName}`}>
+                    <div className={`dropdown-box-container ${dropdownHide}`}>
                         <Dropdown 
                             logout={this.props.logout}
                             currentUserId={this.props.currentUserId}
-                            users={this.props.users}    
+                            users={this.props.users}
+                            toggleDropdownChild={this.toggleDropdownChild}    
                         />
                     </div>
                 </div>

@@ -7,12 +7,30 @@ import { faVideo, faUser, faHome, faSignOutAlt } from '@fortawesome/free-solid-s
 class Dropdown extends React.Component {
     constructor(props) {
         super(props)
-
+        this.state = { dropdownHide: false }
         this.handleLogout = this.handleLogout.bind(this);
+        this.handleDocClick = this.handleDocClick.bind(this);
     }
 
     handleLogout() {
         this.props.logout();
+    }
+
+    componentWillMount() {
+        document.addEventListener('mousedown', this.handleDocClick, false);
+    }
+
+    componentWillUnMount() {
+        document.removeEventListener('mousedown', this.handleDocClick, false);
+    }
+
+    handleDocClick(e) {
+        let dropdownBox = document.getElementsByClassName('dropdown-box')[0];
+        let userIcon = document.getElementsByClassName('header-logout')[0];
+        if (e.target !== dropdownBox && !dropdownBox.contains(e.target) && e.target !== userIcon && !userIcon.contains(e.target)) {
+            this.setState({ dropdownHide: true });
+            this.props.toggleDropdownChild(this.state.dropdownHide);
+        }
     }
 
     render() {
@@ -28,7 +46,7 @@ class Dropdown extends React.Component {
         }
 
         return (
-            <div className='dropdown-box'>
+            <div className='dropdown-box' ref={node => this.node = node}>
                 <div className='dropdown-box-header'>
                     <div className='dropdown-box-header-icon'>
                         {this.props.users[this.props.currentUserId]
