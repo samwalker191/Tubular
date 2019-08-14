@@ -63,7 +63,7 @@ class SessionForm extends React.Component {
                     value={this.state.username}
                     onChange={this.update('username')}
                     placeholder="Username"
-                />;
+                />
             </div>
         } else if (this.props.formType === 'Sign In') {
             toOtherForm = <Link to="/signup">Create Account</Link>;
