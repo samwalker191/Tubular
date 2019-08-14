@@ -95,9 +95,13 @@ class CommentIndex extends React.Component {
 
                     <div className='comments-form-styling-container'>
                         <div className='video-show-comments-form'>
-                            <form>
-                                {commentFormInput}
-                            </form>
+                            
+                                <form>
+                                    <span className='comment-form-input-container'>
+                                        {commentFormInput}
+                                    </span>
+                                </form>
+                          
                             <div className={`comment-form-buttons ${buttonClass}`}>
                                 <button className='comment-cancel-btn' onClick={this.handleCancel}>
                                     CANCEL

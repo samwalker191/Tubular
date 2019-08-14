@@ -20,13 +20,14 @@
 
 .comment-user-icon {
     margin-right: 16px;
-    background: #DB4437;
+    background: #FD4D29;
     padding: 9px 14px;
     border-radius: 100%;
     line-height: 22px;
     font-weight: 500;
     color: white;
     font-size: 20px;
+    font-family: 'Arial';
 }
 
 .comment-details-container {
@@ -70,7 +71,7 @@
 .video-show-comments-form-container {
     display: flex;
     margin-bottom: 40px;
-    width: 99%;
+    width: 100%;
 }
 
 .video-show-comments-form {
@@ -85,15 +86,31 @@
 }
 
 .signed-in {
-    width: 100%;
+    width: 99%;
     border-bottom: 1px solid rgb(229, 229, 229);
     padding: 5px;
     font-size: 15px;
 }
 
 .signed-in:focus {
-    border-bottom: 2px solid #606060;
+    border-bottom: 0px solid rgb(229, 229, 229);
+    // transition: border-bottom 100ms;
+    padding-bottom: 6px;
 }
+
+.comment-form-input-container::after {
+    display: block;
+    content: '';
+    border-top: 2px solid #606060;
+    transform: scaleX(0);
+    transition: transform 200ms ease-in-out;
+    width: 100%;
+}
+
+.comment-form-input-container:focus-within::after {
+    transform: scaleX(1);
+}
+
 
 .signed-out {
     width: 100%;
