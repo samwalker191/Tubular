@@ -44,7 +44,7 @@ class VideoShow extends React.Component {
     }
 
     handleVideoLike() {
-        if (this.props.currUserLike.liked !== undefined) {
+        if (this.props.currUserLike) {
             if (this.props.currUserLike.liked === false) {
                 this.props.changeLike({
                     id: this.props.currUserLike.id,
@@ -66,7 +66,7 @@ class VideoShow extends React.Component {
     }
 
     handleVideoDislike() {
-        if (this.props.currUserLike.liked !== undefined) {
+        if (this.props.currUserLike) {
             if (this.props.currUserLike.liked === true) {
                 this.props.changeLike({
                     id: this.props.currUserLike.id,
@@ -118,14 +118,15 @@ class VideoShow extends React.Component {
 
         let editBtn;
         if (this.props.currentUser) {
-            if (this.props.currentUser.id === this.props.shownVideo.owner_id) {
+            if (this.props.currentUser.id === this.props.shownVideo.ownerId) {
                 editBtn = <Link to={`/edit/${this.props.shownVideo.id}`} className='video-show-edit-btn'>Edit Video</Link>
             }
         }
 
         let likedActive;
         let dislikedActive;
-        if (this.props.currUserLike.liked !== undefined) {
+        console.log('showpage', this.props.currUserLike);
+        if (this.props.currUserLike) {
             if (this.props.currUserLike.liked === true) {
                 likedActive = 'active';
                 dislikedActive = null;
@@ -159,9 +160,9 @@ class VideoShow extends React.Component {
                                 onEnded={this.handleUpNext}
                                 autoPlay
                                 id='video'
-                                key={this.props.shownVideo.videoURL}
+                                key={this.props.shownVideo.videoUrl}
                             >
-                                    <source src={this.props.shownVideo.videoURL} type="video/mp4"></source>
+                                    <source src={this.props.shownVideo.videoUrl} type="video/mp4"></source>
                                 </video>
                             </div>
                             <div className='video-show-details'>

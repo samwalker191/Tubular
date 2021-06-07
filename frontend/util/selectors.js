@@ -16,3 +16,9 @@ export const shuffle = (array) => {
 export const filter = (videosArray, filterId) => {
     return videosArray.filter(video => video.id !== filterId);
 };
+
+export const likeByCurrentUserIdAndVideoId = (state, videoId) => (
+    Object.values(state.entities.likes).filter(like => (
+        like.userId === state.session.id && like.likeableType === 'Video' && like.likeableId === parseInt(videoId)
+    ))[0]
+);

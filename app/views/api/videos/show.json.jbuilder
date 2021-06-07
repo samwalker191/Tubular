@@ -3,7 +3,7 @@ json.video do
 end
 
 json.comments do
-    @video.comments.each do |comment|
+    @video.comments.includes(:user).each do |comment|
         json.set! comment.id do
             json.extract! comment, :id, :body, :user_id, :video_id
             json.commenter comment.user.username
@@ -14,12 +14,10 @@ json.comments do
 end
 
 if current_user
-    likes = @video.likes.select { |like| like.user_id == current_user.id }
-    curr_like = likes[0]
-
-    if curr_like != nil
+    like = current_user.liked_video(@video)
+    if like
         json.like do
-            json.extract! curr_like, :id, :liked, :likeable_id, :likeable_type, :user_id
+            json.extract! like, :id, :liked, :likeable_id, :likeable_type, :user_id
         end
     end
 end

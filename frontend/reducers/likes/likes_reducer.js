@@ -7,10 +7,10 @@ const LikesReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     switch (action.type) {
         case RECEIVE_LIKE:
-            return action.like;
+            return Object.assign({}, oldState, { [action.like.id]: action.like });
         case RECEIVE_VIDEO:
             if (action.payload.like) {
-                return action.payload.like;
+                return Object.assign({}, oldState, { [action.payload.like.id]: action.payload.like });;
             } else {
                 return {};
             }

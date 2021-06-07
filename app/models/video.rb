@@ -36,5 +36,4 @@ class Video < ApplicationRecord
         dislikes = self.likes.select { |like| like.liked == false }
         dislikes.length
     end
-    
 end

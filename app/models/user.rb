@@ -60,4 +60,12 @@ class User < ApplicationRecord
         self.save
         self.session_token
     end
+
+    def liked_video(video)
+        self.likes.find_by(likeable_type: "Video", likeable_id: video.id)
+    end
+
+    def liked_comment(comment)
+        self.likes.find_by(likeable_type: "Comment", likeable_id: comment.id)
+    end
 end

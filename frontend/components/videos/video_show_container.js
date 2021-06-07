@@ -3,21 +3,18 @@ import { fetchVideo, fetchVideos, updateVideoSimple } from '../../actions/videos
 import { addLike, changeLike, removeLike } from '../../actions/likes_actions';
 import { toggleShowPage, addToHistory } from '../../actions/ui_actions';
 import VideoShow from './video_show';
-import { filter, shuffle } from '../../util/selectors';
+import { filter, shuffle, likeByCurrentUserIdAndVideoId } from '../../util/selectors';
 import { toggleSidebar } from '../../actions/ui_actions';
 
 const mapSTP = (state, ownProps) => {
-    let currentUser = state.session.id === null ? null : state.entities.users[state.session.id];
-    let currUserLike = state.entities.like === {} ? null : state.entities.like
     let videosArray = Object.values(state.entities.videos);
     let filterId = parseInt(ownProps.match.params.videoId);
     // let history = state.ui.history;
-    
     return ({
         videos: filter(videosArray, filterId),
         shownVideo: state.entities.videos[ownProps.match.params.videoId],
-        currentUser: currentUser,
-        currUserLike: currUserLike,
+        currentUser: state.entities.users[state.session.id],
+        currUserLike: likeByCurrentUserIdAndVideoId(state, ownProps.match.params.videoId),
         sidebarSmall: state.ui.sidebarSmall,
     });
 };
