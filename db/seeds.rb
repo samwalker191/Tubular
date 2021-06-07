@@ -2,11 +2,14 @@ require 'open-uri'
 
 ActiveRecord::Base.transaction do
 
+    puts "Destroying all..."
     User.destroy_all
     Video.destroy_all
     Comment.destroy_all
     Like.destroy_all
-
+    puts "...done"
+    
+    puts "Creating users..."
     u1 = User.create!(
         username: 'DemoUser',
         email: 'demouser@demo.io',
@@ -36,7 +39,9 @@ ActiveRecord::Base.transaction do
         email: 'watchmojo@email.pizza',
         password: 'watch12345'
     )
+    puts "...done"
 
+    puts "Creating videos..."
     vid1 = Video.create!(
         title: 'Boom, Headshot | PUBG w/ Friends',
         description: 'Short highlight',
@@ -47,19 +52,6 @@ ActiveRecord::Base.transaction do
     vid1.thumbnail.attach(io: file, filename: 'headshot_thumbnail.png')
     file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/headshot.mp4')
     vid1.video.attach(io: file, filename: 'headshot.mp4')
-
-    # vid2 = Video.create!(
-    #     title: 'TESTER VIDEO',
-    #     description: 'Demo user should be able to edit and delete this video',
-    #     owner_id: u1.id,
-    #     views: 5
-    # )
-    # file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/test_thumbnail.jpg')
-    # vid2.thumbnail.attach(io: file, filename: 'test_thumbnail.jpg')
-    # file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/test_vid.mp4')
-    # vid2.video.attach(io: file, filename: 'test_vid.mp4')
-
-    
 
     vid4 = Video.create!(
         title: 'Developers',
@@ -170,7 +162,9 @@ ActiveRecord::Base.transaction do
     vid13.thumbnail.attach(io: file, filename: 'yardsale_thumbnail.png')
     file = open('https://walker-tubular-seed.s3-us-west-1.amazonaws.com/yardsale.mp4')
     vid13.video.attach(io: file, filename: 'yardsale.mp4')
+    puts "...done"
 
+    puts "Creating comments..."
     com1 = Comment.create!(
         user_id: u2.id,
         video_id: vid11.id,
@@ -218,7 +212,9 @@ ActiveRecord::Base.transaction do
         video_id: vid11.id,
         body: 'I feel betrayed'
     )
+    puts "...done"
 
+    puts "Creating likes..."
     like1 = Like.create!(
         liked: true,
         user_id: u2.id,
@@ -260,4 +256,5 @@ ActiveRecord::Base.transaction do
         likeable_id: vid11.id,
         likeable_type: 'Video'
     )
+    puts "...done"
 end
