@@ -8,23 +8,22 @@ const defaultUI = {
     history: []
 };
 
-const UIReducer = (oldState = defaultUI, action) => {
+const uiReducer = (oldState = defaultUI, action) => {
     Object.freeze(oldState);
-    let newState = merge({}, oldState);
+    let newState = Object.assign({}, oldState);
+
     switch (action.type) {
         case TOGGLE_SIDEBAR:
             let toggledSide = !newState.sidebarSmall;
-            return merge(newState, { sidebarSmall: toggledSide });
+            return Object.assign(newState, { sidebarSmall: toggledSide });
         case TOGGLE_SHOW_PAGE:
             let toggledShow = !newState.showPage;
-            return merge(newState, { showPage: toggledShow })
-        // case ADD_TO_HISTORY:
-        //     return newState.history.push(action.video.id);
+            return Object.assign(newState, { showPage: toggledShow })
         case LOGOUT_CURRENT_USER:
-            return merge(newState, { history: [] });
+            return Object.assign(newState, { history: [] });
         default: 
             return oldState;
     }
 };
 
-export default UIReducer;
+export default uiReducer;

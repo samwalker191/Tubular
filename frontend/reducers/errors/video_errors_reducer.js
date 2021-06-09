@@ -1,9 +1,8 @@
-import merge from 'lodash/merge';
-
 import { RECEIVE_VIDEO, RECEIVE_VIDEO_ERRORS, CLEAR_ERRORS } from '../../actions/videos_actions';
 
-const VideoErrorsReducer = (oldState = [], action) => {
+const videoErrorsReducer = (oldState = [], action) => {
     Object.freeze(oldState);
+
     switch (action.type) {
         case RECEIVE_VIDEO_ERRORS:
             return action.errors.responseJSON;
@@ -16,4 +15,4 @@ const VideoErrorsReducer = (oldState = [], action) => {
     }
 };
 
-export default VideoErrorsReducer;
+export default videoErrorsReducer;
