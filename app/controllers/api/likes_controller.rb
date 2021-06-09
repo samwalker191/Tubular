@@ -14,6 +14,7 @@ class Api::LikesController < ApplicationController
 
     def update
         @like = Like.find(params[:id])
+
         if current_user.id == @like.user_id
             if @like.update_attributes(update_like_params)
                 render :show
@@ -27,6 +28,7 @@ class Api::LikesController < ApplicationController
 
     def destroy
         @like = Like.find(params[:id])
+        
         if current_user.id == @like.user_id
             @like.destroy
             render :show

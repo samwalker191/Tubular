@@ -1,4 +1,5 @@
 import { RECEIVE_VIDEOS, RECEIVE_VIDEO, REMOVE_VIDEO } from '../../actions/videos_actions';
+import { RECEIVE_LIKE, DELETE_LIKE } from '../../actions/likes_actions';
 
 const videosReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
@@ -12,6 +13,10 @@ const videosReducer = (oldState = {}, action) => {
             let newState = Object.assign({}, oldState);
             delete newState[action.videoId];
             return newState;
+        case DELETE_LIKE:
+        case RECEIVE_LIKE:
+            debugger
+            return Object.assign({}, oldState, { [action.video.id]: action.video });
         default:
             return oldState;
     }

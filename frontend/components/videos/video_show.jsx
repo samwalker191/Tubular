@@ -10,18 +10,16 @@ class VideoShow extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = this.props.shownVideo;
         this.handleVideoLike = this.handleVideoLike.bind(this);
         this.handleVideoDislike = this.handleVideoDislike.bind(this);
         this.handleVideoPlay = this.handleVideoPlay.bind(this);
         this.handleUpNext = this.handleUpNext.bind(this);
-        this.toggleSidebar = this.toggleSidebar.bind(this);
     }
 
     componentDidMount() {
-        this.props.fetchVideos('');
-        this.props.fetchVideo(this.props.match.params.videoId);
-        this.props.toggleShowPage();
+        this.props.toggleShowPage()
+        this.props.fetchVideo(this.props.match.params.videoId)
+            .then(() => this.props.fetchVideos(''));
         window.scrollTo(0, 0);
     }
 
@@ -30,17 +28,12 @@ class VideoShow extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        
         if (prevProps.shownVideo) {
             if (prevProps.shownVideo.id != this.props.match.params.videoId) {
                 this.props.fetchVideo(this.props.match.params.videoId);
                 window.scrollTo(0, 0);
             }
         }
-    }
-
-    toggleSidebar() {
-        this.props.toggleSidebar();
     }
 
     handleVideoLike() {
@@ -51,17 +44,16 @@ class VideoShow extends React.Component {
                     liked: true,
                     likeable_id: this.props.currUserLike.likeable_id,
                     likeable_type: this.props.currUserLike.likeable_type
-                }).then(() => this.props.fetchVideo(this.props.match.params.videoId))
+                });
             } else {
-                this.props.removeLike(this.props.currUserLike.id)
-                    .then(() => this.props.fetchVideo(this.props.match.params.videoId))
+                this.props.removeLike(this.props.currUserLike.id);
             }
         } else {
             this.props.addLike({
                liked: true,
                likeable_id: this.props.shownVideo.id,
                likeable_type: 'Video'
-            }).then(() => this.props.fetchVideo(this.props.match.params.videoId))
+            });
         }
     }
 
@@ -73,17 +65,16 @@ class VideoShow extends React.Component {
                     liked: false,
                     likeable_id: this.props.currUserLike.likeable_id,
                     likeable_type: this.props.currUserLike.likeable_type
-                }).then(() => this.props.fetchVideo(this.props.match.params.videoId))
+                });
             } else {
                 this.props.removeLike(this.props.currUserLike.id)
-                    .then(() => this.props.fetchVideo(this.props.match.params.videoId))
             }
         } else {
             this.props.addLike({
                 liked: false,
                 likeable_id: this.props.shownVideo.id,
                 likeable_type: 'Video'
-            }).then(() => this.props.fetchVideo(this.props.match.params.videoId))
+            });
         }
     }
 
@@ -125,7 +116,6 @@ class VideoShow extends React.Component {
 
         let likedActive;
         let dislikedActive;
-        console.log('showpage', this.props.currUserLike);
         if (this.props.currUserLike) {
             if (this.props.currUserLike.liked === true) {
                 likedActive = 'active';
@@ -211,7 +201,7 @@ class VideoShow extends React.Component {
                     </div>
                 </div>
                 <div className={hidden}>
-                    <div className={modal} onClick={this.toggleSidebar}></div>
+                    <div className={modal} onClick={this.props.toggleSidebar}></div>
                     <div>
                         <ModalSidebarContainer />
                     </div>
