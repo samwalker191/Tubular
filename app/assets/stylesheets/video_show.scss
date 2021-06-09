@@ -3,17 +3,13 @@
 }
 
 .video-show-page {
-    margin: 80px auto;
-    width: 95%;
+    margin: 80px 2vw;
     font-family: 'Roboto', Arial, sans-serif;
     display: flex;
-    justify-content: center;
 }
 
 .video-show-container {
     padding-right: 24px;
-    // width: 64%;
-    height: auto;
 }
 
 .video-show-container video {
@@ -29,9 +25,8 @@
 }
 
 .video-container {
-    // width: 1260px;
-    width: 875px;
-    height: 495px;
+    width: 65vw;
+    height: auto;
     margin-bottom: 30px;
 }
 
