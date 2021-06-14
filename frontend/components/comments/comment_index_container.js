@@ -2,6 +2,8 @@ import { connect } from 'react-redux';
 import { createComment, deleteComment } from '../../actions/comments_actions';
 import CommentIndex from './comment_index';
 import { fetchVideo } from '../../actions/videos_actions';
+import { addLike, changeLike, removeLike } from '../../actions/likes_actions';
+import { currentUserLikesByCommentId } from '../../util/selectors';
 
 
 const mapSTP = (state, ownProps) => {
@@ -10,7 +12,8 @@ const mapSTP = (state, ownProps) => {
     return ({
         comments: comments,
         shownVideo: ownProps.shownVideo,
-        currentUser: currentUser
+        currentUser: currentUser,
+        currentUserLikes: currentUserLikesByCommentId(state)
     });
 };
 
@@ -19,7 +22,10 @@ const mapDTP = dispatch => {
     return ({
         createComment: comment => dispatch(createComment(comment)),
         deleteComment: commentId => dispatch(deleteComment(commentId)),
-        fetchVideo: videoId => dispatch(fetchVideo(videoId)),        
+        fetchVideo: videoId => dispatch(fetchVideo(videoId)),     
+        addLike: like => dispatch(addLike(like)),
+        changeLike: like => dispatch(changeLike(like)),
+        removeLike: likeId => dispatch(removeLike(likeId)),
     });
 };
 

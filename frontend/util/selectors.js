@@ -22,3 +22,17 @@ export const likeByCurrentUserIdAndVideoId = (state, videoId) => (
         like.userId === state.session.id && like.likeableType === 'Video' && like.likeableId === parseInt(videoId)
     ))[0]
 );
+
+export const currentUserLikesByCommentId = (state) => {
+    const likesByComment = {};
+
+    const likes = Object.values(state.entities.likes).filter(like => {
+        return like.userId === state.session.id && like.likeableType === 'Comment'
+    });
+
+    likes.forEach(like => {
+        likesByComment[like.likeableId] = like;
+    });
+    
+    return likesByComment;
+};

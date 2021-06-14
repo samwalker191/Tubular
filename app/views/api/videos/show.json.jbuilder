@@ -7,10 +7,7 @@ comments = @video.comments.includes(:user)
 json.comments do
     comments.each do |comment|
         json.set! comment.id do
-            json.extract! comment, :id, :body, :user_id, :video_id
-            json.commenter comment.user.username
-            json.likes comment.num_likes
-            json.dislikes comment.num_dislikes
+            json.partial! 'api/comments/comment', comment: comment
         end
     end
 end

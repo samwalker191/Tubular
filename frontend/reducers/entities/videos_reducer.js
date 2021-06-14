@@ -15,7 +15,7 @@ const videosReducer = (oldState = {}, action) => {
             return newState;
         case DELETE_LIKE:
         case RECEIVE_LIKE:
-            return Object.assign({}, oldState, { [action.video.id]: action.video });
+            return action.video ? Object.assign({}, oldState, { [action.video.id]: action.video }) : oldState;
         default:
             return oldState;
     }

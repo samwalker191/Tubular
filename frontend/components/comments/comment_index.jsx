@@ -85,6 +85,7 @@ class CommentIndex extends React.Component {
             setTimeout(() => { document.getElementById('comment-disable').disabled = true }, 1);
         }
 
+        (this.props.currentUserLikes);
         return(
             <div className='video-show-comments-container'>
                 <h3>{this.props.comments.length} Comments</h3>
@@ -119,8 +120,12 @@ class CommentIndex extends React.Component {
                             <CommentIndexItem 
                                 comment={comment}
                                 deleteComment={this.props.deleteComment}
+                                addLike={this.props.addLike}
+                                changeLike={this.props.changeLike}
+                                removeLike={this.props.removeLike}
                                 currentUser={this.props.currentUser} 
                                 key={`comment-${comment.id}`}
+                                like={this.props.currentUserLikes[comment.id]}
                             />
                         ))
                     }

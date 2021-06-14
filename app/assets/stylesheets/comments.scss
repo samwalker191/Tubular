@@ -40,33 +40,79 @@
     align-items: flex-start;
 }
 
-.comment-likes button {
-    padding-right: 8px;
-    color: #606060
+.comment-likes {
+
+    .active {
+        color: rgb(0, 98, 207);
+    }
+
+    button {
+        padding-right: 8px;
+        color: #606060;
+
+        svg {
+            font-size: 15px;
+            padding-right: 8px;
+        }
+
+        span {
+            font-size: 13px;
+        }
+    }
 }
 
-.comment-likes button svg {
-    font-size: 15px;
-    padding-right: 8px;
+.comment-dislikes {
+
+    .active {
+        color: rgb(0, 98, 207);
+    }
+
+    button {
+        padding-right: 8px;
+        color: #606060;
+
+        svg {
+            font-size: 15px;
+            padding-right: 8px;
+        }
+
+        span {
+            font-size: 13px;
+        }
+    }
 }
 
-.comment-likes button span {
-    font-size: 13px;
-}
+// .comment-likes button {
+//     padding-right: 8px;
+//     color: #606060;
 
-.comment-dislikes button {
-    padding-right: 8px;
-    color: #606060
-}
+//     .active {
+//         color: rgb(0, 98, 207)
+//     }
+// }
 
-.comment-dislikes button svg {
-    font-size: 15px;
-    padding-right: 8px;
-}
+// .comment-likes button svg {
+//     font-size: 15px;
+//     padding-right: 8px;
+// }
 
-.comment-dislikes button span {
-    font-size: 13px;
-}
+// .comment-likes button span {
+//     font-size: 13px;
+// }
+
+// .comment-dislikes button {
+//     padding-right: 8px;
+//     color: #606060
+// }
+
+// .comment-dislikes button svg {
+//     font-size: 15px;
+//     padding-right: 8px;
+// }
+
+// .comment-dislikes button span {
+//     font-size: 13px;
+// }
 
 .video-show-comments-form-container {
     display: flex;

@@ -1,5 +1,6 @@
 import { RECEIVE_COMMENT, REMOVE_COMMENT } from '../../actions/comments_actions';
 import { RECEIVE_VIDEO } from '../../actions/videos_actions';
+import { RECEIVE_LIKE, DELETE_LIKE } from '../../actions/likes_actions';
 
 const commentsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
@@ -14,9 +15,12 @@ const commentsReducer = (oldState = {}, action) => {
                 return {};
             }
         case REMOVE_COMMENT:
-            let newState = merge({}, oldState);
+            let newState = Object.assign({}, oldState);
             delete newState[action.commentId];
             return newState;
+        case DELETE_LIKE:
+        case RECEIVE_LIKE:
+            return action.comment ? Object.assign({}, oldState, { [action.comment.id]: action.comment }) : oldState;
         default:
             return oldState;
     }
