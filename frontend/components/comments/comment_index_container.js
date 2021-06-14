@@ -5,7 +5,7 @@ import { fetchVideo } from '../../actions/videos_actions';
 
 
 const mapSTP = (state, ownProps) => {
-    let comments = state.entities.comments === {} ? [] : Object.values(state.entities.comments);
+    let comments = Object.values(state.entities.comments);
     let currentUser = state.session.id ? state.entities.users[state.session.id] : null;
     return ({
         comments: comments,

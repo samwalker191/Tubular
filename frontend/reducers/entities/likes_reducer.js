@@ -8,8 +8,8 @@ const likesReducer = (oldState = {}, action) => {
         case RECEIVE_LIKE:
             return Object.assign({}, oldState, { [action.like.id]: action.like });
         case RECEIVE_VIDEO:
-            if (action.payload.like) {
-                return Object.assign({}, oldState, { [action.payload.like.id]: action.payload.like });;
+            if (action.payload.likes) {
+                return Object.assign({}, oldState, action.payload.likes);
             } else {
                 return {};
             }
