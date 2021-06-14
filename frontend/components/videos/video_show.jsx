@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+import { faThumbsUp, faThumbsDown, faCircle } from '@fortawesome/free-solid-svg-icons';
 import VideoShowIndexItem from './video_show_index_item';
 import { Link } from 'react-router-dom';
 import CommentIndexContainer from '../comments/comment_index_container';
@@ -140,44 +140,44 @@ class VideoShow extends React.Component {
             <div className='video-show-wrapper'>
                 <div className='video-show-page'>
                     <div className='video-show-container'>
-                        
                             <div className='video-container'>
                                 <video 
-                                // width="100%" 
-                                // height="100"
-                                controls 
-                                onPlay={this.handleVideoPlay} 
-                                onEnded={this.handleUpNext}
-                                autoPlay
-                                id='video'
-                                key={this.props.shownVideo.videoUrl}
-                            >
+                                    controls 
+                                    onPlay={this.handleVideoPlay} 
+                                    onEnded={this.handleUpNext}
+                                    autoPlay
+                                    id='video'
+                                    key={this.props.shownVideo.videoUrl}
+                                >
                                     <source src={this.props.shownVideo.videoUrl} type="video/mp4"></source>
                                 </video>
                             </div>
+
                             <div className='video-show-details'>
                                 <div className='video-show-details-top'>
                                     <div className='video-title-edit'>
                                         <div className='video-title'>{this.props.shownVideo.title}</div>
-                                        <div >{editBtn}</div>
+                                        <div>{editBtn}</div>
                                     </div>
 
                                     <div className='video-stats'>
-                                        <span>{this.props.shownVideo.views} Views</span>
+                                        <div>
+                                            <span>{this.props.shownVideo.views} Views</span>
+                                            <FontAwesomeIcon icon={faCircle} className='sub-details-dot' />
+                                            <span>{this.props.shownVideo.published}</span>
+                                        </div>
                                         <ul>
                                             <li className={likedActive}>
                                                 <button onClick={this.handleVideoLike} className={likedActive}>
                                                     <FontAwesomeIcon icon={faThumbsUp}/>
                                                     {this.props.shownVideo.likes}
                                                 </button>
-                                                
                                             </li>
                                             <li className={dislikedActive}>
                                                 <button onClick={this.handleVideoDislike} className={dislikedActive}>
                                                     <FontAwesomeIcon icon={faThumbsDown}/>
                                                     {this.props.shownVideo.dislikes}    
                                                 </button>
-                                                
                                             </li>
                                         </ul>
                                     </div>
@@ -185,7 +185,6 @@ class VideoShow extends React.Component {
                                 <div className='video-show-details-bottom'>
                                     <div className='video-show-details-bottom-left'>
                                         <div className="video-owner">{this.props.shownVideo.owner}</div>
-                                        <div className="video-published">Published on {this.props.shownVideo.published}</div>
                                     </div>
                                     <div className='video-description'>{this.props.shownVideo.description}</div>
                                 </div>
