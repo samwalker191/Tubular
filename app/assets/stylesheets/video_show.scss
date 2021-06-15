@@ -141,7 +141,8 @@
 
 .video-show-index-details {
     padding-left: 10px;
-    width: 20ch;
+    max-width: 20ch;
+    min-width: 15ch;
 
     h3 {
         line-height: 1.4;
