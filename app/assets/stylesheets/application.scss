@@ -10,10 +10,21 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_reset.css.scss
- *= require_tree .
  *= require_self
  */
+
+ @import 'reset.scss';
+
+ @import 'comments.scss';
+ @import 'dropdown.scss';
+ @import 'header.scss';
+ @import 'modal_sidebar.scss';
+ @import 'search_video_index.scss';
+ @import 'session_form.scss';
+ @import 'sidebar.scss';
+ @import 'video_form.scss';
+ @import 'video_index.scss';
+ @import 'video_show.scss';
 
  html {
     height: 100%;

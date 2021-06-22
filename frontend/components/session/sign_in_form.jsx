@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { CSSTransitionGroup } from 'react-transition-group'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
@@ -39,25 +40,37 @@ const SignInForm = ({ errors, signin, clearErrors, history }) => {
   let input;
 
   if (page === 1) {
-    input = <div>
-      <label htmlFor="sign-in-email">Email</label>
-      <input
-        type='text'
-        value={user.email}
-        onChange={update('email')}
-        id="sign-in-email"
-      />
-    </div>
+    input = <CSSTransitionGroup
+      transitionName="slide"
+      transitionLeaveTimeout={100}
+      transitionEnterTimeout={100}
+    >
+      <div key="page-one">
+        <label htmlFor="sign-in-email">Email</label>
+        <input
+          type='text'
+          value={user.email}
+          onChange={update('email')}
+          id="sign-in-email"
+        />
+      </div>
+    </CSSTransitionGroup>
   } else {
-    input = <div>
-      <label htmlFor="sign-in-password" className='password'>Enter your password</label>
-      <input
-        type='password'
-        value={user.password}
-        onChange={update('password')}
-        id="sign-in-password"
-      />
-    </div>
+    input = <CSSTransitionGroup
+      transitionName="slide"
+      transitionLeaveTimeout={100}
+      transitionEnterTimeout={100}
+    >
+      <div key="page-two">
+        <label htmlFor="sign-in-password" className='password'>Enter your password</label>
+        <input
+          type='password'
+          value={user.password}
+          onChange={update('password')}
+          id="sign-in-password"
+        />
+      </div>
+    </CSSTransitionGroup>
   }
 
   return (

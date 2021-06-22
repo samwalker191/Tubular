@@ -81,37 +81,58 @@
 }
 
 .session-form-main {
+  position: relative;
 
-    div {
+  div {
+    font-family: inherit;
+    position: relative;
+
+    &:focus-within label {
+      background-color: #fafafa;
+      transform: translateY(-8px) scale(.75);
+      color: #1A73E8;
+      transition: transform .20s ease-out;
+    }
+
+    &:focus-within .password {
+      transform: translate(-12px, -8px) scale(.75);
+      transition: transform .20s ease-out;
+    }
+
+    label {
+      position: absolute;
       font-family: inherit;
-      position: relative;
+      font-size: 16px;
+      padding: 0 7px;
+      color: #5f6368;
+      transform: translate(8px, 20px);
+      transition: transform .20s ease-out;
 
-      &:focus-within label {
-        background-color: #fafafa;
-        transform: translateY(-8px) scale(.75);
-        color: #1A73E8;
-        transition: transform .20s ease-out;
-      }
-
-      &:focus-within .password {
-        transform: translate(-12px, -8px) scale(.75);
-        transition: transform .20s ease-out;
-      }
-
-      label {
-        position: absolute;
-        font-family: inherit;
-        font-size: 16px;
-        padding: 0 7px;
-        color: #5f6368;
-        transform: translate(8px, 20px);
-        transition: transform .20s ease-out;
-
-        &:hover {
-          cursor: text;
-        }
+      &:hover {
+        cursor: text;
       }
     }
+  }
+}
+
+.slide-enter {
+  transform: translateX(300px);
+}
+
+.slide-enter.slide-enter-active {
+  transform: translateX(0px);
+  transition: transform 100ms ease-in;
+}
+
+.slide-leave {
+  transform: translateX(0px);
+}
+
+.slide-leave.slide-leave-active {
+  transform: translateX(-300px);
+  position: absolute;
+  top: 0px;
+  transition: transform 100ms ease-in;
 }
 
 .session-form-main input {
