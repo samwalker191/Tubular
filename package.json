@@ -10,7 +10,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.9.0",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "^8.3.0",
     "lodash": "^4.17.21",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -21,7 +21,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "save": "^2.4.0",
-    "webpack": "^4.35.2"
+    "webpack": "^5.75.0"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "version": "1.0.0",
@@ -51,6 +51,6 @@
   },
   "homepage": "https://github.com/samwalker191/Tubular#readme",
   "devDependencies": {
-    "webpack-cli": "^3.3.5"
+    "webpack-cli": "^5.0.1"
   }
 }
